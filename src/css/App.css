@@ -1,0 +1,29 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.item1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.item2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 600px;
+    background-color: rgb(255, 255, 255, 0.9);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.item3 {
+    margin-top: 20px;
+    text-align: center;
+}
