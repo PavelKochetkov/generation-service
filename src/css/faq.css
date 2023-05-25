@@ -1,5 +1,8 @@
-.text {
-    font-size: 23px;
-    margin: 10px;
-    font-family: cursive;
+.faq{
+    animation: faq 1s forwards
+}
+
+@keyframes faq {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }

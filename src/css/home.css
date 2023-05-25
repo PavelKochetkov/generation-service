@@ -1,5 +1,10 @@
 .home {
     font-family: cursive;
     font-size: x-large;
-    margin: 10px;
+    animation: home 1s forwards
+}
+
+@keyframes home {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }

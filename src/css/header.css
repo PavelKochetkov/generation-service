@@ -16,6 +16,7 @@
     margin-right: 50px;
     font-size: 45px;
     text-shadow: 1px 1px rgb(136, 136, 209);
+    cursor: default;
 }
 
 .logo {
