@@ -1,25 +1,22 @@
-import React from 'react';
-import './css/App.css';
-import { Route, Routes } from 'react-router-dom';
-import Navmenu from './Components/Navmenu';
-import Header from './Components/Header';
-import { Main } from './Pages/Main';
-import { Faq } from './Pages/Faq';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Header from "./Components/Header";
+import { Password } from "./Pages/Password";
+import { Faq } from "./Pages/Faq";
+import { Home } from "./Pages/Home";
+import { Numbers } from "./Pages/Numbers";
 
 function App() {
   return (
-    <div className='grid-container'>
-      <div className='item1'><Header/></div>
-      <div className='item2'>
-          <Routes>
-            <Route path='/'element = {<Main/>}/>
-            <Route path='/faq' element = {<Faq/>}/>
-          </Routes>
-      </div>
-      <div className='item3'>
-          <Navmenu/>
-      </div>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/password" element={<Password />} />
+        <Route path="/numbers" element={<Numbers />} />
+        <Route path="/faq" element={<Faq />} />
+      </Routes>
+    </>
   );
 }
 export default App;

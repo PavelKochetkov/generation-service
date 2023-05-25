@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import PasswordForm from "../Components/PasswordForm"
 
-export function Main() {
+export function Password() {
     const [lenght, setLenght] = useState(6)
     const handleChangedLenght = (event) => {
         setLenght(event.target.value++)
@@ -41,7 +41,7 @@ export function Main() {
         setPassword(result)
     }
     return (
-        <PasswordForm 
+        <PasswordForm
             lenght={lenght} 
             handleChangedLenght={handleChangedLenght}
             checkedUpperCase={checkedUpperCase}
