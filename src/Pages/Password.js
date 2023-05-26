@@ -5,7 +5,7 @@ import PasswordForm from "../Components/PasswordForm"
 export function Password() {
     const [lenght, setLenght] = useState(6)
     const handleChangedLenght = (event) => {
-        setLenght(event.target.value++)
+        setLenght(parseInt(event.target.value++))
     }
     const [checkedUpperCase, setCheckedUpperCase] = useState(true)
     const changeCheckBoxUpperCase = () => {

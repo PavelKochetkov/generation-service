@@ -12,10 +12,10 @@
 
 .siteName {
     font-family: 'Caveat', cursive;
-    color: rgb(49, 56, 6);
+    color: hsla(16, 100%, 50%, 0.8);
     margin-right: 50px;
     font-size: 45px;
-    text-shadow: 1px 1px rgb(136, 136, 209);
+    /* text-shadow: 2px 1px rgb(136, 136, 209); */
     cursor: default;
 }
 

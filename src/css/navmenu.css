@@ -1,10 +1,12 @@
 .menu {
     display: flex;
     flex-direction: row;
+    align-content: center;
+    justify-content: center;
 }
 
 .active {
-    color: green;
+    color: orangered;
     font-weight: bold;
 }
 
@@ -13,4 +15,21 @@
     font-size: large;
     font-family: cursive;
     margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+}
+
+.bt {
+    color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 1px 1px 0px gray;
+    background-color: rgba(255, 166, 0, 1);
+}
+
+.activ :hover {
+    color: orange;
 }
