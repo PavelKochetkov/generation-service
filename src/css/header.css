@@ -13,10 +13,9 @@
 .siteName {
     font-family: 'Caveat', cursive;
     color: hsla(16, 100%, 50%, 0.8);
-    margin-right: 50px;
     font-size: 45px;
-    /* text-shadow: 2px 1px rgb(136, 136, 209); */
     cursor: default;
+    margin-left: 130px;
 }
 
 .logo {
