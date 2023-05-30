@@ -34,3 +34,13 @@
 .activ :hover {
     color: orange;
 }
+
+@media (max-width: 1160px) {
+    .menu {
+        margin-bottom: 10px;
+    }
+
+    .activ {
+        margin-top: 5px;
+    }
+}

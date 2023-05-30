@@ -27,3 +27,22 @@
     font-family: 'Caveat', cursive;
     text-transform: uppercase;
 }
+
+@media (max-width: 1160px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .siteName {
+        text-align: center;
+        margin: 0;
+        font-size: 35px;
+    }
+
+    .logo {
+        margin-left: 0;
+        padding: 0;
+        padding-top: 5px;
+    }
+} 
