@@ -8,7 +8,7 @@ import { Numbers } from "./Pages/Numbers";
 
 function App() {
   return (
-    <>
+    <React.Fragment>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -16,7 +16,7 @@ function App() {
         <Route path="/numbers" element={<Numbers />} />
         <Route path="/faq" element={<Faq />} />
       </Routes>
-    </>
+    </React.Fragment>
   );
 }
 export default App;

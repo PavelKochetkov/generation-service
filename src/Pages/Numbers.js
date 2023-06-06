@@ -1,11 +1,10 @@
 import React from "react";
-import { Loader } from "../Components/Loader";
 import "../css/numbers.css";
 
 export const Numbers = () => {
   return (
     <div className="numbers">
-        <Loader />
+        <div className="titlePageNumber"><h1>Генератор чисел</h1></div>
     </div>
   );
 };

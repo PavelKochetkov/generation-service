@@ -1,10 +1,59 @@
 .home {
-    font-family: cursive;
-    font-size: x-large;
-    animation: home 1s forwards
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(22, 65, 148);
+    height: 100vh;
+    margin-left: 300px;
 }
 
-@keyframes home {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+.info {
+    font-size: 70px;
+    font-family: cursive;
+    letter-spacing: 5px;
+    margin-left: 40px;
+    color: azure;
+}
+
+.down {
+    animation: spin 4s infinite linear;
+    position: absolute;
+    top: 800px;
+    margin-left: 15px;
+}
+
+@keyframes spin {
+    0% {transform: translate3d(0, -30%, 0)}
+    50% {transform: translate3d(0, 30%, 0)}
+    100% {transform: translate3d(0, -30%, 0)}
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.descrTitle {
+    font-family: cursive;
+    font-size: 40px;
+    letter-spacing: 5px;
+    margin-left: 350px;
+    margin-top: 20px;
+}
+
+.genereateInfo {
+    display: flex;
+    margin: 20px;
+    flex-direction: row;
+    font-family: cursive;
+    text-align: center;
+    margin-left: 400px;
+}
+
+.genPass, .genNum, .genOther {
+    margin: 40px;
+    font-size: 20px;
 }

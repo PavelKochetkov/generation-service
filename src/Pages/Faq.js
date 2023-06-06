@@ -1,11 +1,10 @@
 import React from "react"
 import '../css/faq.css'
-import { Loader } from "../Components/Loader"
 
 export function Faq() {
     return (
         <div className="faq">
-            <Loader/>
+            <div className="titlePageFaq"><h1>Обновления</h1></div>
         </div>
         
     )

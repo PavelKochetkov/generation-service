@@ -5,14 +5,17 @@ import Navmenu from "./Navmenu";
 
 export default function Header() {
     return (
-        <div className="header">
-            <div className="logo">
-                <img src={logo} alt="logo"/>
+        <React.Fragment>
+            <div className="header">
+                <div className="logo">
+                    <img src={logo} alt="logo"/>
+                    <div className="siteName">
+                        <span className="strong">Strong</span> - generation service
+                    </div>
+                </div>
+                <Navmenu/>
             </div>
-            <div className="siteName">
-                <span className="strong">Strong</span> - generation service
-            </div>
-            <Navmenu/>
-        </div>
+        </React.Fragment>
+
     )
 }
