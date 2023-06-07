@@ -16,6 +16,5 @@ export default function Header() {
                 <Navmenu/>
             </div>
         </React.Fragment>
-
     )
 }
