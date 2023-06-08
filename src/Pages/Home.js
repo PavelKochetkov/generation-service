@@ -13,11 +13,10 @@ export const Home = () => {
         }
         fetchData()
     }, [])
-    console.log(homes)
 
     return(
         <React.Fragment>
-            {homes.map(home => <HomePage home={home}/>)}
+            {homes.map((home) => <HomePage home={home}/>)}
         </React.Fragment>
     )
 }

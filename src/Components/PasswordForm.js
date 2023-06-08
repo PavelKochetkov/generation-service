@@ -30,7 +30,7 @@ export default function PasswordForm(props) {
                             <input
                                 type="checkbox"
                                 checked={props.checkedUpperCase}
-                                onInput={props.changeCheckBoxUpperCase}
+                                onChange={props.changeCheckBoxUpperCase}
                                 id="upperCase"
                             />
                         </label>

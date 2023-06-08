@@ -7,3 +7,16 @@
     padding-bottom: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+@media (max-width: 1520px) {
+    .titlePageFaq {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .titlePageFaq {
+        font-size: 10px;
+    }
+}

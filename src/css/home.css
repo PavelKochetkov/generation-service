@@ -46,14 +46,45 @@
 
 .genereateInfo {
     display: flex;
-    margin: 20px;
+    margin-top: 20px;
     flex-direction: row;
     font-family: cursive;
     text-align: center;
     margin-left: 400px;
+    justify-content: center;
+    align-items: center;
 }
 
 .genPass, .genNum, .genOther {
     margin: 40px;
     font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width: 1520px) {
+    .home, .info, .descrTitle, .genereateInfo {
+        margin-left: 0;
+    }
+    .down {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .genereateInfo {
+        flex-direction: column;
+    }
+
+    .descrTitle {
+        font-size: 19px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    }
+
+    .info {
+        font-size: 25px;
+    }
+
+    .genPass, .genNum, .genOther {
+        font-size: 15px;
+    }
 }

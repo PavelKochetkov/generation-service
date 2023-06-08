@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import { Password } from "./Pages/Password";
@@ -7,9 +7,14 @@ import { Home } from "./Pages/Home";
 import { Numbers } from "./Pages/Numbers";
 
 function App() {
+  const [burgerMenuActive, setBurgerMenuActive] = useState(false)
+  const handleBurgerMenu = () => {
+    setBurgerMenuActive(!burgerMenuActive)
+  }
   return (
     <React.Fragment>
-      <Header />
+      <div className='burgerClick' onClick={handleBurgerMenu}></div>
+      <Header active={burgerMenuActive} setActive={setBurgerMenuActive}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/password" element={<Password />} />

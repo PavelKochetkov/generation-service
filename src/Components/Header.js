@@ -1,12 +1,13 @@
 import React from "react";
 import '../css/header.css'
-import logo from '../img/logo.jpg'
+import logo from '../logo.jpg'
 import Navmenu from "./Navmenu";
 
-export default function Header() {
+
+export default function Header({active, setActive}) {
     return (
         <React.Fragment>
-            <div className="header">
+            <div className={active ? 'header activated':'header'} onClick={() => {setActive(false)}}>
                 <div className="logo">
                     <img src={logo} alt="logo"/>
                     <div className="siteName">
