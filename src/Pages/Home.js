@@ -16,7 +16,7 @@ export const Home = () => {
 
     return(
         <React.Fragment>
-            {homes.map((home) => <HomePage home={home}/>)}
+            {homes.map((home, index) => <div key={index}><HomePage home={home}/></div>)}
         </React.Fragment>
     )
 }
