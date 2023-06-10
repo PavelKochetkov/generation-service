@@ -1,4 +1,4 @@
-.header {
+.navbar {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
 }
 
 @media (max-width: 1520px) {
-    .header {
+    .navbar {
         transform: translateX(-200%);
         align-items: center;
         text-align: center;
@@ -55,7 +55,7 @@
         margin-left: 10px;
     }
 
-    .header.activated {
+    .navbar.activated {
         transform: translateX(0);
         width: 100%;
     }

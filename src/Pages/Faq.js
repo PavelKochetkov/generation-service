@@ -1,11 +1,11 @@
 import React from "react"
 import '../css/faq.css'
+import { Header } from "../Components/Header"
 
 export function Faq() {
     return (
         <div className="faq">
-            <div className="titlePageFaq"><h1>Обновления</h1></div>
+            <Header title = {'Обновления'}/>
         </div>
-        
     )
 }

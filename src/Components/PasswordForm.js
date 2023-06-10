@@ -5,7 +5,6 @@ export default function PasswordForm(props) {
   return (
     <React.Fragment>
         <div className="flex-container">
-        <div className="titlePage"><h1>Генератор паролей</h1></div>
             <div className="item2">
                 <div className="password">{props.password}</div>
                 <div className="title">Настройте свой пароль</div>

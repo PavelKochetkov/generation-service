@@ -1,6 +1,7 @@
 import React from "react"
 import { useState } from "react"
 import PasswordForm from "../Components/PasswordForm"
+import { Header } from "../Components/Header"
 
 export function Password() {
     const [lenght, setLenght] = useState(6)
@@ -41,19 +42,22 @@ export function Password() {
         setPassword(result)
     }
     return (
-        <PasswordForm
-            lenght={lenght} 
-            handleChangedLenght={handleChangedLenght}
-            checkedUpperCase={checkedUpperCase}
-            changeCheckBoxUpperCase={changeCheckBoxUpperCase}
-            checkedLowerCase={checkedLowerCase}
-            changeCheckBoxLowerCase={changeCheckBoxLowerCase}
-            checkedNumber={checkedNumber}
-            changeCheckBoxNumber={changeCheckBoxNumber}
-            checkedSymbols={checkedSymbols}
-            changeCheckBoxSymbols={changeCheckBoxSymbols}
-            generatePassword={generatePassword}
-            password={password}
-        />
+        <React.Fragment>
+            <Header title={'Генератор паролей'}/>
+            <PasswordForm
+                lenght={lenght} 
+                handleChangedLenght={handleChangedLenght}
+                checkedUpperCase={checkedUpperCase}
+                changeCheckBoxUpperCase={changeCheckBoxUpperCase}
+                checkedLowerCase={checkedLowerCase}
+                changeCheckBoxLowerCase={changeCheckBoxLowerCase}
+                checkedNumber={checkedNumber}
+                changeCheckBoxNumber={changeCheckBoxNumber}
+                checkedSymbols={checkedSymbols}
+                changeCheckBoxSymbols={changeCheckBoxSymbols}
+                generatePassword={generatePassword}
+                password={password}
+            />
+        </React.Fragment>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Header from "./Components/Header";
+import NavigationBar from "./Components/NavigationBar";
 import { Password } from "./Pages/Password";
 import { Faq } from "./Pages/Faq";
 import { Home } from "./Pages/Home";
@@ -14,7 +14,7 @@ function App() {
   return (
     <React.Fragment>
       <div className='burgerClick' onClick={handleBurgerMenu}></div>
-      <Header active={burgerMenuActive} setActive={setBurgerMenuActive}/>
+      <NavigationBar active={burgerMenuActive} setActive={setBurgerMenuActive}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/password" element={<Password />} />
