@@ -1,0 +1,30 @@
+[
+    {
+        "info": "Сервис генерации",
+        "logo": {
+            "img": "/generation-service/img/logo.jpg",
+            "alt": "logo"
+        },
+        "down": {
+            "img": "/generation-service/img/down.jpg",
+            "alt": "down"
+        },
+        "description": {
+            "password": {
+                "img": "/generation-service/img/password.png",
+                "alt": "passwordlogo",
+                "title": "Создать устойчивый к взлому пароль"
+            },
+            "numbers": {
+                "img": "/generation-service/img/numbers.png",
+                "alt": "numberslogo",
+                "title": "Сгенерировать случайные числа"
+            },
+            "others": {
+                "img": "/generation-service/img/other.png",
+                "alt": "otherlogo",
+                "title": "...и другое. Следите за обновлениями :)"
+            }
+        } 
+    }
+]
