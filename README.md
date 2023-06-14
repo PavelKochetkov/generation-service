@@ -1,3 +1,1 @@
-# Password generation service
-
-### Выберите необходимые параметры и нажмите "Сгенерировать пароль"
+# Generation service
