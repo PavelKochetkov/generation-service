@@ -13,7 +13,6 @@ export const Home = () => {
         }
         fetchData()
     }, [])
-
     return(
         <React.Fragment>
             {homes.map((home, index) => <div key={index}><HomePage home={home}/></div>)}

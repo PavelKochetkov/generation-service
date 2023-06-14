@@ -5,7 +5,7 @@ export default function PasswordForm(props) {
   return (
     <React.Fragment>
         <div className="flex-container">
-            <div className="item2">
+            <div className="passwordContainer">
                 <div className="password">{props.password}</div>
                 <div className="title">Настройте свой пароль</div>
                 <hr />
@@ -63,6 +63,43 @@ export default function PasswordForm(props) {
                     </div>
                 </div>
                 <button className="btn" onClick={props.generatePassword}>Сгенерировать пароль</button>
+            </div>
+            <div className="descriptions">
+                <div className="descriptionTitle">{props.description.title}</div>
+                <div className="noteOne">
+                    <div className="noteOneTitle">{props.description.noteone.title}</div>
+                    <div className="noteOneDescription">
+                        <div className="descr">{props.description.noteone.description}</div>
+                            <img 
+                                className="logoimg"
+                                src={props.description.noteone.img} 
+                                alt={props.description.noteone.alt}
+                            />
+                    </div>
+                </div>
+                <div className="noteTwo">
+                    <div className="noteTwoTitle">{props.description.notetwo.title}</div>
+                    <div className="noteTwoDescription">
+                            <img 
+                                className="logoimg"
+                                src={props.description.notetwo.img} 
+                                alt={props.description.notetwo.alt}
+                            />
+                        <div className="descr">{props.description.notetwo.description}</div>
+                    </div>
+                </div>
+                <div className="noteThree">
+                    <div className="noteThreeTitle">{props.description.notethree.title}</div>
+                    <div className="noteThreeDescription">
+                        <div className="descr">{props.description.notethree.description}</div>
+                            <img 
+                                className="logoimg" 
+                                src={props.description.notethree.img}    
+                                alt={props.description.notethree.alt}
+                            />
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </React.Fragment>

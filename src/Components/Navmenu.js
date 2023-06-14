@@ -14,7 +14,7 @@ export default function Navmenu() {
             <NavLink to='/numbers' className='activ'>
                 <div>Числа</div>
             </NavLink>
-            <NavLink to='/faq' className='activ'>
+            <NavLink to='/updates' className='activ'>
                 <div>Обновления</div>
             </NavLink>
         </div>

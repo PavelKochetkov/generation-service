@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import NavigationBar from "./Components/NavigationBar";
 import { Password } from "./Pages/Password";
-import { Faq } from "./Pages/Faq";
+import { Updates } from "./Pages/Updates";
 import { Home } from "./Pages/Home";
 import { Numbers } from "./Pages/Numbers";
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/password" element={<Password />} />
         <Route path="/numbers" element={<Numbers />} />
-        <Route path="/faq" element={<Faq />} />
+        <Route path="/updates" element={<Updates/>} />
       </Routes>
     </React.Fragment>
   );

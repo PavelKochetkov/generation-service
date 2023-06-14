@@ -1,12 +1,12 @@
 import React from "react";
-import "../css/numbers.css";
 import { Header } from "../Components/Header";
+import { NumbersForm } from "../Components/NumberForm";
 
 export const Numbers = () => {
   return (
     <div className="numbers">
-      <Header title = {'Генератор чисел'}/>
-        {/* <div className="titlePageNumber"><h1>Генератор чисел</h1></div> */}
+      <Header title={'Генератор чисел'}/>
+      <NumbersForm/>
     </div>
   );
 };

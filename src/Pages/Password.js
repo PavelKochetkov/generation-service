@@ -1,9 +1,19 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import PasswordForm from "../Components/PasswordForm"
 import { Header } from "../Components/Header"
+import { baseURL } from "../config"
+import axios from "axios"
 
 export function Password() {
+    const [descriptions, setDescriptions] = useState([])
+    useEffect(() => {
+        const fetchData = async () => {
+            const respPassword = await axios.get(`${baseURL}passwordpage.json`)
+            setDescriptions(respPassword.data)
+        }
+        fetchData()
+    }, [])
     const [lenght, setLenght] = useState(6)
     const handleChangedLenght = (event) => {
         setLenght(parseInt(event.target.value++))
@@ -44,20 +54,24 @@ export function Password() {
     return (
         <React.Fragment>
             <Header title={'Генератор паролей'}/>
-            <PasswordForm
-                lenght={lenght} 
-                handleChangedLenght={handleChangedLenght}
-                checkedUpperCase={checkedUpperCase}
-                changeCheckBoxUpperCase={changeCheckBoxUpperCase}
-                checkedLowerCase={checkedLowerCase}
-                changeCheckBoxLowerCase={changeCheckBoxLowerCase}
-                checkedNumber={checkedNumber}
-                changeCheckBoxNumber={changeCheckBoxNumber}
-                checkedSymbols={checkedSymbols}
-                changeCheckBoxSymbols={changeCheckBoxSymbols}
-                generatePassword={generatePassword}
-                password={password}
-            />
+            {descriptions.map((description, index) => 
+                <div key={index}>
+                    <PasswordForm 
+                        description={description}
+                        lenght={lenght} 
+                        handleChangedLenght={handleChangedLenght}
+                        checkedUpperCase={checkedUpperCase}
+                        changeCheckBoxUpperCase={changeCheckBoxUpperCase}
+                        checkedLowerCase={checkedLowerCase}
+                        changeCheckBoxLowerCase={changeCheckBoxLowerCase}
+                        checkedNumber={checkedNumber}
+                        changeCheckBoxNumber={changeCheckBoxNumber}
+                        checkedSymbols={checkedSymbols}
+                        changeCheckBoxSymbols={changeCheckBoxSymbols}
+                        generatePassword={generatePassword}
+                        password={password}
+                    />
+                </div>)}
         </React.Fragment>
     )
 }

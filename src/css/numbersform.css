@@ -1,0 +1,13 @@
+.numbersform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 500px;
+    min-height: 80vh;
+}
+
+@media (max-width: 1520px) {
+    .numbersform{
+        margin-left: 0px;
+    }
+}
