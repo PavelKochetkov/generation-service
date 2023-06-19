@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import '../css/home.css'
 import HomePage from '../Components/HomePage'
 import { baseURL } from '../config'
 import axios from 'axios'

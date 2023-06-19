@@ -2,7 +2,6 @@ import React from "react";
 import '../css/home.css'
 
 export default function HomePage (props) {
-   
     return (
         <React.Fragment>
             <div className='home'>

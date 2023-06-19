@@ -9,7 +9,6 @@ export function Updates() {
     const [showUpdate, setShowUpdate] = useState(false)
     const handleShowUpdate = () => {
         setShowUpdate(!showUpdate)
-        console.log(showUpdate)
     }
     useEffect(() => {
         const fetchData = async () => {

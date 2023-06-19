@@ -17,6 +17,12 @@
                     "mobile": "/generation-service/img/mobile.jpg"
                 }
             }
+        }, 
+        "updatetwo": {
+            "title": "Update 0.2.1 от 18.06.2023",
+            "change": {
+                "description" : "Добавлен генератор случайных чисел"
+            }
         }
     }
 ]
