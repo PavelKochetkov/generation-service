@@ -5,6 +5,7 @@ import { Password } from "./Pages/Password";
 import { Updates } from "./Pages/Updates";
 import { Home } from "./Pages/Home";
 import { Numbers } from "./Pages/Numbers";
+import { QrService } from "./Pages/QrService";
 
 function App() {
   const [burgerMenuActive, setBurgerMenuActive] = useState(false)
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/password" element={<Password />} />
         <Route path="/numbers" element={<Numbers />} />
+        <Route path="/qrservice" element={<QrService/>} />
         <Route path="/updates" element={<Updates/>} />
       </Routes>
     </React.Fragment>

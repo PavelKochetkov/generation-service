@@ -1,0 +1,58 @@
+.qrForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 350px;
+    margin-top: 200px;
+}
+.btQr {
+    margin-bottom: 20px;
+    font-family: cursive;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.btQr:hover {
+    box-shadow: 1px 1px 1px rgb(134, 127, 127);
+    background-color: rgb(3, 118, 212);
+    color: white;
+}
+.qrImage {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    border-color: rgb(3, 118, 212);
+    margin-bottom: 50px;
+}
+.inputQr {
+    width: 250px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgb(22, 65, 148);
+    margin-bottom: 30px;
+    font-family: cursive;
+}
+.errorQr {
+    color: red;
+    font-size: 15px;
+}
+
+@media (max-width: 1520px) {
+    .qrForm {
+        margin-left: 0;
+        text-align: center;
+        margin-top: 70px;
+    }
+}
+@media (max-width: 768px) {
+    .btQr {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .inputQr {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}

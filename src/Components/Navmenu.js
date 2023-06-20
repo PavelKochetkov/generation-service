@@ -14,6 +14,9 @@ export default function Navmenu() {
             <NavLink to='/numbers' className='activ'>
                 <div>Числа</div>
             </NavLink>
+            <NavLink to='/qrservice' className='activ'>
+                <div>QR-сервис</div>
+            </NavLink>
             <NavLink to='/updates' className='activ'>
                 <div>Обновления</div>
             </NavLink>

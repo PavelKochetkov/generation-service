@@ -22,3 +22,9 @@
     font-weight: bold;
     color: aliceblue;
 }
+
+@media (max-width: 768px) {
+    .activ {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}
