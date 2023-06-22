@@ -15,7 +15,7 @@ export const Numbers = () => {
   const generateNumber = (min, max) => {
     max = maxNumber
     min = minNumber
-    setResult(Math.floor(Math.random() * (max - min)) + min)
+    setResult(Math.floor(Math.random() * (max - min)) + min + 1)
   }
   return (
     <React.Fragment>

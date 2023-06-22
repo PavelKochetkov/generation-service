@@ -51,7 +51,7 @@
     .burgerClick {
         transform: translateX(0);
         margin: 0;
-        margin-top: 30px;
+        margin-top: 50px;
         margin-left: 10px;
     }
 
@@ -65,5 +65,8 @@
     .logo {
         flex-direction: column;
         margin-bottom: 20px;
+    }
+    .burgerClick {
+        margin-top: 30px;
     }
 }
