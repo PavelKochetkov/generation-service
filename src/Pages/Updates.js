@@ -10,6 +10,10 @@ export function Updates() {
     const handleShowUpdate = () => {
         setShowUpdate(!showUpdate)
     }
+    const [showUpdateTwo, setShowUpdateTwo] = useState(false)
+    const handleShowUpdateTwo = () => {
+        setShowUpdateTwo(!showUpdateTwo)
+    }
     useEffect(() => {
         const fetchData = async () => {
             const respUpdates = await axios.get(`${baseURL}updates.json`)
@@ -26,6 +30,8 @@ export function Updates() {
                     update={update}
                     active={showUpdate}
                     handle={handleShowUpdate}
+                    activetwo={showUpdateTwo}
+                    handletwo={handleShowUpdateTwo}
                 />
             </div>)}
         </React.Fragment>

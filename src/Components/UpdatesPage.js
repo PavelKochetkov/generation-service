@@ -5,10 +5,20 @@ export const UpdatesPage = (props) => {
     return (
         <React.Fragment>
             <div className="updatesTitle">
+                <button className="bt" onClick={props.handletwo}>{props.update.updatetwo.title}</button>
                 <button className="bt" onClick={props.handle}>{props.update.updateone.title}</button>
+            </div>
+            <div className={props.activetwo ? 'updatesForm onactive': "updatesForm"}>
+                <div className="change">
+                    <hr className="hrupdate"/>
+                    <div className="titleUpdate">{props.update.updatetwo.change.numbers}</div>
+                    <div className="titleUpdate">{props.update.updatetwo.change.qr}</div>
+                    <hr className="hrupdate"/>
+                </div>
             </div>
             <div className={props.active ? 'updatesForm onactive': "updatesForm"}>
                 <div className="change">
+                    <hr className="hrupdate"/>
                     <div className="titleUpdate">{props.update.updateone.change.changeOne.title}</div>
                         <div className="changeOne">
                             <div className="old">
