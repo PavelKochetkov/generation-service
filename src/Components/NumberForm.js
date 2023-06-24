@@ -16,7 +16,7 @@ export const NumbersForm = (props) => {
                 <div className="er">Число не может быть текстом</div> }
             {props.minNumber>props.maxNumber && 
                 <div className="er">
-                    Начальное значение не может быть больше либо равно конечному
+                    Начальное значение не может быть больше конечного
                 </div>}
             <div className="range">
                 от
