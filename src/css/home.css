@@ -73,6 +73,7 @@
 @media (max-width: 768px) {
     .genereateInfo {
         flex-direction: column;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 
     .descrTitle {
@@ -82,6 +83,7 @@
 
     .info {
         font-size: 25px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     }
 
     .genPass, .genNum, .genOther {
