@@ -3,11 +3,11 @@ import { Header } from "../Components/Header";
 import { NumbersForm } from "../Components/NumberForm";
 
 export const Numbers = () => {
-  const [minNumber, setMinNumber] = useState()
+  const [minNumber, setMinNumber] = useState(0)
   const changeMinNumber = (event) => {
     setMinNumber(+event.target.value)
   }
-  const [maxNumber, setMaxNumber] = useState()
+  const [maxNumber, setMaxNumber] = useState(1)
   const changeMaxNumber = (event) => {
     setMaxNumber(+event.target.value)
   }
@@ -15,7 +15,7 @@ export const Numbers = () => {
   const generateNumber = (min, max) => {
     max = maxNumber
     min = minNumber
-    setResult(Math.floor(Math.random() * (max - min)) + min + 1)
+    setResult(Math.floor(Math.random() * (max - min + 1)) + min)
   }
   return (
     <React.Fragment>

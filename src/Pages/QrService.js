@@ -6,18 +6,11 @@ import logo from '../JustDoIt.png'
 export const QrService = () => {
     const [qrCode, setQrCode] = useState(logo)
     const [text, setText] = useState('')
-    const [error, setError] = useState('')
-    const appError = () => {
-        setError('Поле не может быть пустым')
-    }
-    const clearError = () => {
-        setError('')
-    }
+    
     const changeText = (event) => {
         setText(event.target.value)
     }
     const fetchData = () => {
-        text.length === 0 ? appError() : clearError()
         setQrCode(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${text}`)
         setText('')
     }
@@ -29,7 +22,6 @@ export const QrService = () => {
                 changeText={changeText}
                 qrCode={qrCode}
                 fetchData={fetchData}
-                error={error}
             />
         </React.Fragment>
     )

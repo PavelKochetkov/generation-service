@@ -9,7 +9,6 @@ export const QrPage = (props) => {
                 alt=""
                 className="qrImage"
             />
-            <div className="errorQr">{props.error}</div>
             <input
                 type="text"
                 placeholder="Введите значение"
@@ -17,7 +16,12 @@ export const QrPage = (props) => {
                 value={props.text}
                 className="inputQr"
             />
-            <button className="btQr" onClick={props.fetchData}>Сгенерировать QR-код</button>
+            <button 
+                className="btQr" 
+                onClick={props.fetchData}
+                disabled={!props.text}>
+                Сгенерировать QR-код
+            </button>
         </div>
     )
 }
