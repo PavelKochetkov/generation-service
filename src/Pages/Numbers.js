@@ -7,7 +7,7 @@ export const Numbers = () => {
   const changeMinNumber = (event) => {
     setMinNumber(+event.target.value)
   }
-  const [maxNumber, setMaxNumber] = useState(1)
+  const [maxNumber, setMaxNumber] = useState(0)
   const changeMaxNumber = (event) => {
     setMaxNumber(+event.target.value)
   }
