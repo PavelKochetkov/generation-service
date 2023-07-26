@@ -1,94 +1,103 @@
 .home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(22, 65, 148);
-    height: 100vh;
-    margin-left: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(22, 65, 148);
+  height: 100vh;
+  margin-left: 300px;
 }
 
 .info {
-    font-size: 70px;
-    font-family: cursive;
-    letter-spacing: 5px;
-    margin-left: 40px;
-    color: azure;
+  font-size: 70px;
+  font-family: cursive;
+  letter-spacing: 5px;
+  margin-left: 40px;
+  color: azure;
 }
 
 .down {
-    animation: spin 4s infinite linear;
-    position: absolute;
-    top: 800px;
-    margin-left: 15px;
+  animation: spin 4s infinite linear;
+  position: absolute;
+  top: 800px;
+  margin-left: 15px;
 }
 
 @keyframes spin {
-    0% {transform: translate3d(0, -30%, 0)}
-    50% {transform: translate3d(0, 30%, 0)}
-    100% {transform: translate3d(0, -30%, 0)}
+  0% {
+    transform: translate3d(0, -30%, 0);
+  }
+  50% {
+    transform: translate3d(0, 30%, 0);
+  }
+  100% {
+    transform: translate3d(0, -30%, 0);
+  }
 }
 
 .description {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .descrTitle {
-    font-family: cursive;
-    font-size: 40px;
-    letter-spacing: 5px;
-    margin-left: 350px;
-    margin-top: 20px;
+  font-family: cursive;
+  font-size: 40px;
+  letter-spacing: 5px;
+  margin-left: 350px;
+  margin-top: 20px;
 }
 
 .genereateInfo {
-    display: flex;
-    margin-top: 20px;
-    flex-direction: row;
-    font-family: cursive;
-    text-align: center;
-    margin-left: 400px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: row;
+  font-family: cursive;
+  text-align: center;
+  margin-left: 400px;
+  justify-content: center;
+  align-items: center;
 }
 
-.genPass, .genNum, .genOther {
-    margin: 40px;
-    font-size: 20px;
-    text-align: center;
+.block {
+  margin: 40px;
+  font-size: 20px;
+  text-align: center;
 }
 
 @media (max-width: 1520px) {
-    .home, .info, .descrTitle, .genereateInfo {
-        margin-left: 0;
-    }
-    .down {
-        display: none;
-    }
+  .home,
+  .info,
+  .descrTitle,
+  .genereateInfo {
+    margin-left: 0;
+  }
+  .down {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-    .genereateInfo {
-        flex-direction: column;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
+  .genereateInfo {
+    flex-direction: column;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
 
-    .descrTitle {
-        font-size: 19px;
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    }
+  .descrTitle {
+    font-size: 19px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
 
-    .info {
-        font-size: 25px;
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    }
+  .info {
+    font-size: 25px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
 
-    .genPass, .genNum, .genOther {
-        font-size: 15px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
+  .block{
+    font-size: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
