@@ -1,6 +1,6 @@
 install:
 	npm ci
 predeploy:
-	npm predeploy
+	npm run predeploy
 deploy:
-	npm deploy
+	npm run deploy
