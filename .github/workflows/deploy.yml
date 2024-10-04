@@ -8,4 +8,5 @@ jobs:
             - uses: actions/setup-node@v3
             - run: make install
             - run: echo "machine github.com login PavelKochetkov password ${{ secrets.GITHUB_TOKEN }}" >> ~/.netrc
+            - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
             - run: make deploy
