@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import HomePage from "../Components/HomePage";
-import { baseURL } from "../config";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import HomePage from '../Components/HomePage';
+import baseURL from '../config';
 
-export const Home = () => {
+const Home = () => {
   const [homes, setHome] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -13,10 +13,12 @@ export const Home = () => {
     fetchData();
   }, []);
   return (
-    <React.Fragment>
-      {homes.map((home, index) => (
-        <HomePage home={home} key={index} />
+    <>
+      {homes.map((home) => (
+        <HomePage home={home} />
       ))}
-    </React.Fragment>
+    </>
   );
 };
+
+export default Home;

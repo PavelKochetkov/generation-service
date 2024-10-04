@@ -1,1 +1,3 @@
-export const baseURL = '/generation-service/'
+const baseURL = '/generation-service/';
+
+export default baseURL;

@@ -1,29 +1,29 @@
 [
-    {
-        "updateone": {
-            "title": "Update 0.2.0 от 14.06.2023",
-            "change": {
-                "changeOne": {
-                    "title": "Полностью переработанный дизайн",
-                    "old": "/generation-service/img/old.jpg",
-                    "new": "/generation-service/img/new.jpg",
-                    "arrow": "/generation-service/img/arrow.png",
-                    "alt": "photo"
-                },
-                "changeTwo": {
-                    "title": "Адаптация под разные устройства",
-                    "desctop": "/generation-service/img/desctop.jpg",
-                    "tablet": "/generation-service/img/tablet.jpg",
-                    "mobile": "/generation-service/img/mobile.jpg"
-                }
-            }
-        }, 
-        "updatetwo": {
-            "title": "Update 0.2.1 от 23.06.2023",
-            "change": {
-                "numbers" : "1) Добавлено генерирование случайных чисел.",
-                "qr": "2) Добавлено генерирование QR-кода."
+  {
+    "updateone": {
+        "title": "Update 0.2.0 от 14.06.2023",
+        "change": {
+            "changeOne": {
+                "title": "Полностью переработанный дизайн",
+                "old": "/generation-service/assets/old.jpg",
+                "new": "/generation-service/assets/new.jpg",
+                "arrow": "/generation-service/assets/arrow.png",
+                "alt": "photo"
+            },
+            "changeTwo": {
+                "title": "Адаптация под разные устройства",
+                "desctop": "/generation-service/assets/desctop.jpg",
+                "tablet": "/generation-service/assets/tablet.jpg",
+                "mobile": "/generation-service/assets/mobile.jpg"
             }
         }
+    }, 
+    "updatetwo": {
+        "title": "Update 0.2.1 от 23.06.2023",
+        "change": {
+            "numbers" : "1) Добавлено генерирование случайных чисел.",
+            "qr": "2) Добавлено генерирование QR-кода."
+        }
     }
+  }
 ]
