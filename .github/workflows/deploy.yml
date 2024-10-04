@@ -6,6 +6,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
-            - run: npm install
-            - run: npm predeploy
-            - run: npm deploy
+            - run: make install
+            - run: make predeploy
+            - run: make deploy
