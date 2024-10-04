@@ -12,4 +12,7 @@ jobs:
                 echo "${{ secrets.SSH_DEPLOY_KEY }}" > ~/.ssh/id_rsa
                 chmod 600 ~/.ssh/id_rsa
                 ssh-keyscan github.com >> ~/.ssh/known_hosts
+            - run: |
+                git config --global user.name Pavel Kochetkov
+                git config --global user.email kochetkov_p@mail.ru
             - run: make deploy
