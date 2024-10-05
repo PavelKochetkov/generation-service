@@ -11,5 +11,5 @@ jobs:
             - run: make install
             - run: git config user.name ${{ secrets.GIT_USER_NAME }}
             - run: git config user.email ${{ secrets.GIT_USER_EMAIL }}
+            - run: printenv
             - run: make deploy
-            
