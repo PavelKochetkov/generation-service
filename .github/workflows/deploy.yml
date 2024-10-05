@@ -5,8 +5,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
               with:
                 token: ${{secrets.DEPLOY_TOKEN}}
+            - uses: actions/setup-node@v3
             - run: make install
+            - run: git config user.name ${{ secrets.GIT_USER_NAME }}
+            - run: git config user.email ${{ secrets.GIT_USER_EMAIL }}
             - run: make deploy
