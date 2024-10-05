@@ -11,5 +11,15 @@ jobs:
             - run: make install
             - run: git config user.name ${{ secrets.GIT_USER_NAME }}
             - run: git config user.email ${{ secrets.GIT_USER_EMAIL }}
-            - run: printenv
+            - run: echo "DEPLOY_TOKEN is set"
+              env:
+                DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+
+            - run: echo "GIT_USER_NAME is set"
+              env:
+                GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+
+            - run: echo "GIT_USER_EMAIL is set"
+              env:
+                GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
             - run: make deploy
