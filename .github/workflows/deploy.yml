@@ -16,5 +16,5 @@ jobs:
                 echo "  StrictHostKeyChecking no" >> ~/.ssh/config
               name: Deploy
             - run: |
-                git remote set-url origin git@github.com: ${{ github.repository }}.git
+                git remote set-url origin git@github.com:${{ github.repository }}.git
                 make deploy
