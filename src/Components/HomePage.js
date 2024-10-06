@@ -16,7 +16,7 @@ const HomePage = (props) => {
         </div>
       </div>
       <div className="description">
-        <div className="descrTitle">Для чего нужен сервис</div>
+        <div className="descrTitle">Для чего нужен сервис?</div>
         <div className="genereateInfo">
           <div className="block">
             <img
