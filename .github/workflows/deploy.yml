@@ -8,10 +8,9 @@ jobs:
             - uses: actions/setup-node@v3
             - run: make install
             - run: |
-                git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-                make predeploy
                 git config --global user.name "Pavel Kochetkov"
                 git config --global user.email "kochetkov_p@mail.ru"
-                make deploy -- -u "github-actions-bot <support+actions@github.com>"
+                git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+                make deploy
               env:
                 GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
