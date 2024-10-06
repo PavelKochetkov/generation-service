@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useState } from 'react';
 import Header from '../Components/Header';
 import NumbersForm from '../Components/NumberForm';
@@ -12,10 +13,8 @@ const Numbers = () => {
     setMaxNumber(+event.target.value);
   };
   const [result, setResult] = useState(0);
-  const generateNumber = (min, max) => {
-    const tempMaxNumber = max;
-    const tempMinNumber = min;
-    setResult(Math.floor(Math.random() * (tempMaxNumber - tempMinNumber + 1)) + tempMinNumber);
+  const generateNumber = () => {
+    setResult(Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber);
   };
   return (
     <>
