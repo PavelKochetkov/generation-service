@@ -8,8 +8,6 @@ jobs:
             - uses: actions/setup-node@v3
             - run: make install
             - run: |
-                git config --global user.name "Pavel Kochetkov"
-                git config --global user.email "kochetkov_p@mail.ru"
                 git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
                 make deploy
               env:
