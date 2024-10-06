@@ -17,4 +17,4 @@ jobs:
               name: Deploy
             - run: |
                 git remote set-url origin git@github.com:${{ github.repository }}.git
-                
+                make deploy
