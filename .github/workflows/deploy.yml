@@ -7,8 +7,14 @@ jobs:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
             - run: make install
+              name: Set up SSH
             - run: |
-                git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+                mkdir -p ~/.ssh
+                echo "${{ secrets.AUTH_DEPLOY }}" > ~/.ssh/id_rsa
+                chmod 600 ~/.ssh/id_rsa
+                echo "Host github.com" >> ~/.ssh/config
+                echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+              name: Deploy
+            - run: |
+                git remote set-url origin git@github.com: ${{ github.repository }}}.git
                 make deploy
-              env:
-                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
