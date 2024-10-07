@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import getPageRoute from './utils/routes';
 import NavigationBar from './Components/NavigationBar';
 import Password from './Pages/Password';
 import Updates from './Pages/Updates';
@@ -19,11 +20,11 @@ const App = () => {
       <div className="burgerClick" onClick={handleBurgerMenu} />
       <NavigationBar active={burgerMenuActive} setActive={setBurgerMenuActive} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/password" element={<Password />} />
-        <Route path="/numbers" element={<Numbers />} />
-        <Route path="/qrservice" element={<QrService />} />
-        <Route path="/updates" element={<Updates />} />
+        <Route path={getPageRoute('HOME_PAGE')} element={<Home />} />
+        <Route path={getPageRoute('PASSWORD_PAGE')} element={<Password />} />
+        <Route path={getPageRoute('NUMBER_PAGE')} element={<Numbers />} />
+        <Route path={getPageRoute('QR_PAGE')} element={<QrService />} />
+        <Route path={getPageRoute('UPDATE_PAGE')} element={<Updates />} />
       </Routes>
     </>
   );
