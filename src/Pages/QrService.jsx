@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import QrPage from '../Components/QrPage';
 import Header from '../Components/Header';
-import logo from '../JustDoIt.png';
+import logo from '../assets/JustDoIt.png';
 
 const QrService = () => {
   const [qrCode, setQrCode] = useState(logo);

@@ -8,6 +8,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const respHome = await axios.get(`${baseURL}homepage.json`);
+      console.log(respHome.data);
       setHome(respHome.data);
     };
     fetchData();

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import '../css/NavigationBar.css';
-import logo from '../logo.jpg';
+import logo from '../assets/logo.jpg';
 import Navmenu from './Navmenu';
 
 const NavigationBar = ({ active, setActive }) => (
