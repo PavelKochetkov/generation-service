@@ -1,10 +1,12 @@
 /* eslint-disable no-param-reassign */
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../Components/Header';
 import NumbersForm from '../Components/NumberForm';
 import getId from '../utils/generateId';
 
 const Numbers = () => {
+  const { t } = useTranslation();
   const [minNumber, setMinNumber] = useState(0);
   const changeMinNumber = (event) => {
     setMinNumber(+event.target.value);
@@ -19,7 +21,7 @@ const Numbers = () => {
   };
   return (
     <>
-      <Header title="Генератор чисел" />
+      <Header title={t('numberPage.title')} />
       <NumbersForm
         key={getId()}
         minNumber={minNumber}

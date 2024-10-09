@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../css/passwordForm.css';
 
 const PasswordForm = (props) => {
@@ -17,16 +18,18 @@ const PasswordForm = (props) => {
     generatePassword,
     description,
   } = props;
+  const { t } = useTranslation();
   return (
     <div className="flex-container">
       <div className="passwordContainer">
         <div className="password">{password}</div>
-        <div className="title">Настройте свой пароль</div>
+        <div className="title">{t('passwordPage.setupPassword')}</div>
         <hr />
         <div className="setup">
           <div className="setupRange">
             <label>
-              Длина пароля:
+              {t('passwordPage.passwordLength')}
+              :
               {' '}
               {lenght}
               <input
@@ -41,7 +44,7 @@ const PasswordForm = (props) => {
           </div>
           <div className="setupCheckBox">
             <label>
-              Верхний регистр
+              {t('passwordPage.upperCase')}
               <input
                 type="checkbox"
                 checked={checkedUpperCase}
@@ -50,7 +53,7 @@ const PasswordForm = (props) => {
               />
             </label>
             <label>
-              Нижний регистр
+              {t('passwordPage.lowerCase')}
               <input
                 type="checkbox"
                 id="lowerCase"
@@ -59,7 +62,7 @@ const PasswordForm = (props) => {
               />
             </label>
             <label>
-              Числа
+              {t('passwordPage.numbers')}
               <input
                 type="checkbox"
                 id="numbers"
@@ -68,7 +71,7 @@ const PasswordForm = (props) => {
               />
             </label>
             <label>
-              Символы
+              {t('passwordPage.symbols')}
               <input
                 type="checkbox"
                 id="symbols"
@@ -83,7 +86,7 @@ const PasswordForm = (props) => {
           type="button"
           onClick={generatePassword}
         >
-          Сгенерировать пароль
+          {t('passwordPage.getPassword')}
         </button>
       </div>
       <div className="descriptions">

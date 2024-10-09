@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../css/home.css';
 
 const HomePage = (props) => {
   const { home } = props;
+  const { t } = useTranslation();
 
   return (
     <>
@@ -16,7 +18,7 @@ const HomePage = (props) => {
         </div>
       </div>
       <div className="description">
-        <div className="descrTitle">Для чего нужен сервис?</div>
+        <div className="descrTitle">{t('homePage.mainQuestion')}</div>
         <div className="genereateInfo">
           <div className="block">
             <img

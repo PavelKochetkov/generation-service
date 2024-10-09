@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import getId from '../utils/generateId';
 import PasswordForm from '../Components/PasswordForm';
@@ -6,6 +7,7 @@ import Header from '../Components/Header';
 import baseURL from '../config';
 
 const Password = () => {
+  const { t } = useTranslation();
   const [descriptions, setDescriptions] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +56,7 @@ const Password = () => {
   };
   return (
     <>
-      <Header title="Генератор паролей" />
+      <Header title={t('passwordPage.title')} />
       {descriptions.map((description) => (
         <PasswordForm
           key={getId()}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../css/numbersform.css';
 
 const NumbersForm = (props) => {
@@ -10,6 +11,7 @@ const NumbersForm = (props) => {
     changeMaxNumber,
     changeMinNumber,
   } = props;
+  const { t } = useTranslation();
 
   return (
     <div className="numbersform">
@@ -19,27 +21,27 @@ const NumbersForm = (props) => {
         onClick={generateNumber}
         disabled={(minNumber > maxNumber) || (typeof minNumber !== 'number' && typeof maxNumber !== 'number')}
       >
-        Случайное число
+        {t('numberPage.getRandomNumber')}
       </button>
       <hr className="hr" />
-      <div className="lenght">Укажите диапазон</div>
+      <div className="lenght">{t('numberPage.range')}</div>
       {typeof minNumber !== 'number' && typeof maxNumber !== 'number'
-                && <div className="er">Число не может быть текстом</div> }
+                && <div className="er">{t('numberPage.notToBeText')}</div> }
       {minNumber > maxNumber
                 && (
                 <div className="er">
-                  Начальное значение не может быть больше конечного
+                  {t('numberPage.canNotToBeGreater')}
                 </div>
                 )}
       <div className="range">
-        от
+        {t('numberPage.from')}
         <input
           className="min"
           type="number"
           value={minNumber}
           onChange={changeMinNumber}
         />
-        до
+        {t('numberPage.to')}
         <input
           className="max"
           type="number"

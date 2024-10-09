@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../css/QrPage.css';
 
 const QrPage = (props) => {
   const {
     qrCode, changeText, text, fetchData,
   } = props;
+  const { t } = useTranslation();
 
   return (
     <div className="qrForm">
@@ -26,7 +28,7 @@ const QrPage = (props) => {
         onClick={fetchData}
         disabled={!text}
       >
-        Сгенерировать QR-код
+        {t('qrPage.getQrCode')}
       </button>
     </div>
   );

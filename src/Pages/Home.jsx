@@ -16,7 +16,10 @@ const Home = () => {
   return (
     <>
       {homes.map((home) => (
-        <HomePage key={getId()} home={home} />
+        <HomePage
+          key={getId()}
+          home={home}
+        />
       ))}
     </>
   );

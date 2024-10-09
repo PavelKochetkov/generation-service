@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import getId from '../utils/generateId';
 import Header from '../Components/Header';
@@ -6,6 +7,7 @@ import UpdatesPage from '../Components/UpdatesPage';
 import baseURL from '../config';
 
 const Updates = () => {
+  const { t } = useTranslation();
   const [updates, setUpdates] = useState([]);
   const [showUpdate, setShowUpdate] = useState(false);
   const handleShowUpdate = () => {
@@ -24,7 +26,7 @@ const Updates = () => {
   }, []);
   return (
     <>
-      <Header title="Обновления" />
+      <Header title={t('updatePage.title')} />
       {updates.map((update) => (
         <UpdatesPage
           key={getId()}

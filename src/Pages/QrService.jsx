@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import QrPage from '../Components/QrPage';
 import Header from '../Components/Header';
 import logo from '../assets/JustDoIt.png';
 
 const QrService = () => {
+  const { t } = useTranslation();
   const [qrCode, setQrCode] = useState(logo);
   const [text, setText] = useState('');
 
@@ -16,7 +18,7 @@ const QrService = () => {
   };
   return (
     <>
-      <Header title="Генератор QR-кода" />
+      <Header title={t('qrPage.title')} />
       <QrPage
         text={text}
         changeText={changeText}
