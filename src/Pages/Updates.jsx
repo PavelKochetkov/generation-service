@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import getId from '../utils/generateId';
 import Header from '../Components/Header';
 import UpdatesPage from '../Components/UpdatesPage';
 import baseURL from '../config';
@@ -25,15 +26,14 @@ const Updates = () => {
     <>
       <Header title="Обновления" />
       {updates.map((update) => (
-        <div>
-          <UpdatesPage
-            update={update}
-            active={showUpdate}
-            handle={handleShowUpdate}
-            activetwo={showUpdateTwo}
-            handletwo={handleShowUpdateTwo}
-          />
-        </div>
+        <UpdatesPage
+          key={getId()}
+          update={update}
+          active={showUpdate}
+          handle={handleShowUpdate}
+          activetwo={showUpdateTwo}
+          handletwo={handleShowUpdateTwo}
+        />
       ))}
     </>
   );

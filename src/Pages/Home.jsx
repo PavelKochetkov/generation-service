@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import getId from '../utils/generateId';
 import HomePage from '../Components/HomePage';
 import baseURL from '../config';
 
@@ -8,7 +9,6 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const respHome = await axios.get(`${baseURL}homepage.json`);
-      console.log(respHome.data);
       setHome(respHome.data);
     };
     fetchData();
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       {homes.map((home) => (
-        <HomePage home={home} />
+        <HomePage key={getId()} home={home} />
       ))}
     </>
   );

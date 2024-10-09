@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import getId from '../utils/generateId';
 import PasswordForm from '../Components/PasswordForm';
 import Header from '../Components/Header';
 import baseURL from '../config';
@@ -56,6 +57,7 @@ const Password = () => {
       <Header title="Генератор паролей" />
       {descriptions.map((description) => (
         <PasswordForm
+          key={getId()}
           description={description}
           lenght={lenght}
           handleChangedLenght={handleChangedLenght}

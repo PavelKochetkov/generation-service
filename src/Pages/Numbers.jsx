@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Header from '../Components/Header';
 import NumbersForm from '../Components/NumberForm';
+import getId from '../utils/generateId';
 
 const Numbers = () => {
   const [minNumber, setMinNumber] = useState(0);
@@ -20,6 +21,7 @@ const Numbers = () => {
     <>
       <Header title="Генератор чисел" />
       <NumbersForm
+        key={getId()}
         minNumber={minNumber}
         changeMinNumber={changeMinNumber}
         maxNumber={maxNumber}
