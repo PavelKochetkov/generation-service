@@ -19,7 +19,7 @@ const Password = () => {
   const [lenght, setLenght] = useState(6);
   const handleChangedLenght = (event) => {
     const newLength = parseInt(event.target.value, 10);
-    setLenght(newLength + 1);
+    setLenght(newLength);
   };
   const [checkedUpperCase, setCheckedUpperCase] = useState(true);
   const changeCheckBoxUpperCase = () => {
