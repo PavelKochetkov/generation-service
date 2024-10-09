@@ -1,5 +1,5 @@
 import _ from 'lodash';
 
-const getId = () => _.uniqueId();
+const getId = async () => _.uniqueId();
 
 export default getId;
