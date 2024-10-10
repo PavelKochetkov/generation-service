@@ -28,7 +28,7 @@ const QrPage = (props) => {
         onClick={fetchData}
         disabled={!text}
       >
-        {t('qrPage.getQrCode')}
+        {t('qrPage.createQrCode')}
       </button>
     </div>
   );

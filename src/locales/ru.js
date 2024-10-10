@@ -6,6 +6,8 @@ export default {
       createPassword: 'Создать устойчивый к взлому пароль',
       createNumber: 'Сгенерировать случайное число',
       stayTuned: '...и другое. Следите за обновлениями',
+      logoHomePage: 'логотип главной страницы',
+      downwardViewingDirection: 'направление просмотра вниз',
     },
     passwordPage: {
       title: 'Генератор паролей',
@@ -16,6 +18,7 @@ export default {
       numbers: 'Числа',
       symbols: 'Символы',
       getPassword: 'Сгенерировать пароль',
+      passwordStrength: 'Какие факторы определяют надёжность пароля?',
     },
     numberPage: {
       title: 'Генератор чисел',
@@ -28,7 +31,7 @@ export default {
     },
     qrPage: {
       title: 'Генератор QR-кода',
-      getQrCode: 'Сгенерировать QR-код',
+      createQrCode: 'Сгенерировать QR-код',
     },
     updatePage: {
       title: 'Обновления',

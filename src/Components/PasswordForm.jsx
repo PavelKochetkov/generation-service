@@ -16,7 +16,7 @@ const PasswordForm = (props) => {
     checkedSymbols,
     changeCheckBoxSymbols,
     generatePassword,
-    description,
+    data,
   } = props;
   const { t } = useTranslation();
   return (
@@ -90,40 +90,20 @@ const PasswordForm = (props) => {
         </button>
       </div>
       <div className="descriptions">
-        <div className="descriptionTitle">{description.title}</div>
-        <div className="noteOne">
-          <div className="noteTitle">{description.noteone.title}</div>
-          <div className="noteDescription">
-            <div className="descr">{description.noteone.description}</div>
-            <img
-              className="logoimg"
-              src={description.noteone.img}
-              alt={description.noteone.alt}
-            />
+        <div className="descriptionTitle">{t('passwordPage.passwordStrength')}</div>
+        {data.map((item) => (
+          <div key={item.id}>
+            <div className="noteTitle">{item.title}</div>
+            <div className="noteDescription">
+              <div className="descr">{item.description}</div>
+              <img
+                className="logoimg"
+                src={item.img}
+                alt={item.alt}
+              />
+            </div>
           </div>
-        </div>
-        <div className="noteTwo">
-          <div className="noteTitle">{description.notetwo.title}</div>
-          <div className="noteDescription">
-            <img
-              className="logoimg"
-              src={description.notetwo.img}
-              alt={description.notetwo.alt}
-            />
-            <div className="descr">{description.notetwo.description}</div>
-          </div>
-        </div>
-        <div className="noteThree">
-          <div className="noteTitle">{description.notethree.title}</div>
-          <div className="noteDescription">
-            <div className="descr">{description.notethree.description}</div>
-            <img
-              className="logoimg"
-              src={description.notethree.img}
-              alt={description.notethree.alt}
-            />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

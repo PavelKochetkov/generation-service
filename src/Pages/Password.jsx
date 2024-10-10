@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
-import getId from '../utils/generateId';
 import PasswordForm from '../Components/PasswordForm';
 import Header from '../Components/Header';
 import baseURL from '../config';
 
 const Password = () => {
   const { t } = useTranslation();
-  const [descriptions, setDescriptions] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const respPassword = await axios.get(`${baseURL}passwordpage.json`);
-      setDescriptions(respPassword.data);
+      const getData = await axios.get(`${baseURL}passwordpage.json`);
+      setData(getData.data);
     };
     fetchData();
   }, []);
@@ -57,24 +56,21 @@ const Password = () => {
   return (
     <>
       <Header title={t('passwordPage.title')} />
-      {descriptions.map((description) => (
-        <PasswordForm
-          key={getId()}
-          description={description}
-          lenght={lenght}
-          handleChangedLenght={handleChangedLenght}
-          checkedUpperCase={checkedUpperCase}
-          changeCheckBoxUpperCase={changeCheckBoxUpperCase}
-          checkedLowerCase={checkedLowerCase}
-          changeCheckBoxLowerCase={changeCheckBoxLowerCase}
-          checkedNumber={checkedNumber}
-          changeCheckBoxNumber={changeCheckBoxNumber}
-          checkedSymbols={checkedSymbols}
-          changeCheckBoxSymbols={changeCheckBoxSymbols}
-          generatePassword={generatePassword}
-          password={password}
-        />
-      ))}
+      <PasswordForm
+        data={data}
+        lenght={lenght}
+        handleChangedLenght={handleChangedLenght}
+        checkedUpperCase={checkedUpperCase}
+        changeCheckBoxUpperCase={changeCheckBoxUpperCase}
+        checkedLowerCase={checkedLowerCase}
+        changeCheckBoxLowerCase={changeCheckBoxLowerCase}
+        checkedNumber={checkedNumber}
+        changeCheckBoxNumber={changeCheckBoxNumber}
+        checkedSymbols={checkedSymbols}
+        changeCheckBoxSymbols={changeCheckBoxSymbols}
+        generatePassword={generatePassword}
+        password={password}
+      />
     </>
   );
 };

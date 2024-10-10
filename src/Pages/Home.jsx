@@ -1,27 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import getId from '../utils/generateId';
 import HomePage from '../Components/HomePage';
 import baseURL from '../config';
 
 const Home = () => {
-  const [homes, setHome] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const respHome = await axios.get(`${baseURL}homepage.json`);
-      setHome(respHome.data);
+      const getData = await axios.get(`${baseURL}homepage.json`);
+      setData(getData.data);
     };
     fetchData();
   }, []);
   return (
-    <>
-      {homes.map((home) => (
-        <HomePage
-          key={getId()}
-          home={home}
-        />
-      ))}
-    </>
+    <HomePage data={data} />
   );
 };
 
