@@ -1,3 +1,5 @@
+const API_VERSION = '/generation-service';
+
 const PAGE_ROUTES = {
   HOME_PAGE: '/',
   PASSWORD_PAGE: '/password',
@@ -6,6 +8,11 @@ const PAGE_ROUTES = {
   UPDATE_PAGE: '/updates',
 };
 
-const getPageRoute = (route) => PAGE_ROUTES[route];
+const API_ROUTES = {
+  HOME_PAGE: 'homepage.json',
+  PASSWORD_PAGE: 'passwordpage.json',
+};
 
-export default getPageRoute;
+export const getPageRoute = (route) => PAGE_ROUTES[route];
+
+export const getApiRoute = (route) => `${API_VERSION}/${API_ROUTES[route]}`;

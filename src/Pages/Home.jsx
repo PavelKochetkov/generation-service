@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { useGetDataQuery } from '../api/homeApi';
 import HomePage from '../Components/HomePage';
-import baseURL from '../config';
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const getData = await axios.get(`${baseURL}homepage.json`);
-      setData(getData.data);
-    };
-    fetchData();
-  }, []);
+  const { data = [], isLoading } = useGetDataQuery();
   return (
-    <HomePage data={data} />
+    <HomePage
+      data={data}
+      isLoading={isLoading}
+    />
   );
 };
 

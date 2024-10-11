@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import getPageRoute from './utils/routes';
+import { getPageRoute } from './utils/routes';
 import NavigationBar from './Components/NavigationBar';
 import Password from './Pages/Password';
 import Updates from './Pages/Updates';

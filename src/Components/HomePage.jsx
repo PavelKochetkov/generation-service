@@ -2,10 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.jpg';
 import down from '../assets/down.jpg';
+import Loading from './Loading';
 import '../css/home.css';
 
 const HomePage = (props) => {
-  const { data } = props;
+  const { data, isLoading } = props;
   const { t } = useTranslation();
 
   return (
@@ -22,6 +23,7 @@ const HomePage = (props) => {
       <div className="description">
         <div className="descrTitle">{t('homePage.mainQuestion')}</div>
         <div className="genereateInfo">
+          {isLoading && <Loading />}
           {data.map((item) => (
             <div className="block" key={item.id}>
               <img
