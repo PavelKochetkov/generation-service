@@ -16,25 +16,6 @@
   color: azure;
 }
 
-.down {
-  animation: spin 4s infinite linear;
-  position: absolute;
-  top: 800px;
-  margin-left: 15px;
-}
-
-@keyframes spin {
-  0% {
-    transform: translate3d(0, -30%, 0);
-  }
-  50% {
-    transform: translate3d(0, 30%, 0);
-  }
-  100% {
-    transform: translate3d(0, -30%, 0);
-  }
-}
-
 .description {
   display: flex;
   flex-direction: column;
@@ -73,9 +54,6 @@
   .descrTitle,
   .genereateInfo {
     margin-left: 0;
-  }
-  .down {
-    display: none;
   }
 }
 

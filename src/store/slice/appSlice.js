@@ -1,8 +1,11 @@
+/* eslint-disable max-len */
 import { createSlice } from '@reduxjs/toolkit';
 import homeApi from '../../api/homeApi';
+import passwordApi from '../../api/passwordApi';
 
 const initialState = {
-  data: null,
+  homeData: null,
+  passwordData: null,
   isError: false,
   error: null,
 };
@@ -20,11 +23,31 @@ const appSlice = createSlice({
       })
       .addMatcher(homeApi.endpoints.getData.matchFulfilled, (state, { payload }) => {
         Object.assign(state, {
-          data: payload,
+          homeData: payload,
           error: null,
+          isError: false,
         });
       })
       .addMatcher(homeApi.endpoints.getData.matchRejected, (state, { payload }) => {
+        Object.assign(state, {
+          isError: true,
+          error: payload.status,
+        });
+      })
+      .addMatcher(passwordApi.endpoints.getPasswordPageData.matchPending, (state) => {
+        Object.assign(state, {
+          isError: false,
+          error: null,
+        });
+      })
+      .addMatcher(passwordApi.endpoints.getPasswordPageData.matchFulfilled, (state, { payload }) => {
+        Object.assign(state, {
+          passwordData: payload,
+          error: null,
+          isError: false,
+        });
+      })
+      .addMatcher(passwordApi.endpoints.getPasswordPageData.matchRejected, (state, { payload }) => {
         Object.assign(state, {
           isError: true,
           error: payload.status,
@@ -35,6 +58,5 @@ const appSlice = createSlice({
 
 export const selectIsError = (state) => state.app.isError;
 export const selectError = (state) => state.app.error;
-export const selectData = (state) => state.app.data;
 
 export default appSlice.reducer;

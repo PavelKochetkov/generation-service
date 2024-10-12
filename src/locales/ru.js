@@ -45,5 +45,8 @@ export default {
       qr: 'QR-сервис',
       updates: 'Обновления',
     },
+    status: {
+      loading: 'Загрузка...',
+    },
   },
 };

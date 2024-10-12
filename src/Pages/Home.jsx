@@ -3,10 +3,10 @@ import { useGetDataQuery } from '../api/homeApi';
 import HomePage from '../Components/HomePage';
 
 const Home = () => {
-  const { data = [], isLoading } = useGetDataQuery();
+  const { data: homeData = [], isLoading } = useGetDataQuery();
   return (
     <HomePage
-      data={data}
+      homeData={homeData}
       isLoading={isLoading}
     />
   );

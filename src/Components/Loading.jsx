@@ -1,6 +1,12 @@
 import React from 'react';
-import { Spinner } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
-const Loading = () => <Spinner animation="border" variant="warning" />;
+const Loading = () => {
+  const { t } = useTranslation();
+
+  return (
+    <h3>{t('status.loading')}</h3>
+  );
+};
 
 export default Loading;

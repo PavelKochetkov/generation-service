@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import '../css/passwordForm.css';
+import Loading from './Loading';
 
 const PasswordForm = (props) => {
   const {
@@ -16,7 +17,8 @@ const PasswordForm = (props) => {
     checkedSymbols,
     changeCheckBoxSymbols,
     generatePassword,
-    data,
+    passwordData,
+    isLoading,
   } = props;
   const { t } = useTranslation();
   return (
@@ -91,7 +93,8 @@ const PasswordForm = (props) => {
       </div>
       <div className="descriptions">
         <div className="descriptionTitle">{t('passwordPage.passwordStrength')}</div>
-        {data.map((item) => (
+        {isLoading && <Loading />}
+        {passwordData.map((item) => (
           <div key={item.id}>
             <div className="noteTitle">{item.title}</div>
             <div className="noteDescription">

@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
+import { useGetPasswordPageDataQuery } from '../api/passwordApi';
 import PasswordForm from '../Components/PasswordForm';
 import Header from '../Components/Header';
-import baseURL from '../config';
 
 const Password = () => {
   const { t } = useTranslation();
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const getData = await axios.get(`${baseURL}passwordpage.json`);
-      setData(getData.data);
-    };
-    fetchData();
-  }, []);
+  const { data: passwordData = [], isLoading } = useGetPasswordPageDataQuery();
   const [lenght, setLenght] = useState(6);
   const handleChangedLenght = (event) => {
     const newLength = parseInt(event.target.value, 10);
@@ -57,7 +49,8 @@ const Password = () => {
     <>
       <Header title={t('passwordPage.title')} />
       <PasswordForm
-        data={data}
+        passwordData={passwordData}
+        isLoading={isLoading}
         lenght={lenght}
         handleChangedLenght={handleChangedLenght}
         checkedUpperCase={checkedUpperCase}
