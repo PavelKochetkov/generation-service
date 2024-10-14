@@ -1,4 +1,5 @@
 # Сервис генерации
+[![Actions Status](https://github.com/PavelKochetkov/generation-service/actions/workflows/deploy.yml/badge.svg)](https://github.com/PavelKochetkov/generation-service/actions)
 
 ## Описание
 Сервис генерации предоставляет удобные инструменты для создания различных типов данных, включая пароли, случайные числа и QR-коды. Наше приложение предназначено для простоты использования и безопасности, предлагая возможность генерировать уникальные значения в считанные секунды.
