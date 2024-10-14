@@ -1,26 +1,76 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect } from 'react';
 import '../css/passwordForm.css';
+import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
+import Input from './Input';
+import {
+  selectPassword,
+  selectMinPasswordLength,
+  selectMaxPasswordLength,
+  selectCurrentPasswordLength,
+  selectUpperCase,
+  selectLowerCase,
+  selectNumber,
+  selectSymbol,
+  setCharacterType,
+  setPasswordLength,
+  generatePassword,
+} from '../store/slice/appSlice';
 import Loading from './Loading';
 
 const PasswordForm = (props) => {
   const {
-    lenght,
-    password,
-    handleChangedLenght,
-    checkedUpperCase,
-    changeCheckBoxUpperCase,
-    checkedLowerCase,
-    changeCheckBoxLowerCase,
-    checkedNumber,
-    changeCheckBoxNumber,
-    checkedSymbols,
-    changeCheckBoxSymbols,
-    generatePassword,
     passwordData,
     isLoading,
   } = props;
+
+  const password = useSelector(selectPassword);
+  const minPasswordLength = useSelector(selectMinPasswordLength);
+  const maxPasswordLength = useSelector(selectMaxPasswordLength);
+  const currentPasswordLength = useSelector(selectCurrentPasswordLength);
+  const isUpperCase = useSelector(selectUpperCase);
+  const isLowerCase = useSelector(selectLowerCase);
+  const isNumber = useSelector(selectNumber);
+  const isSymbol = useSelector(selectSymbol);
+
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setPasswordLength(minPasswordLength));
+  }, [dispatch, minPasswordLength]);
+
+  const changePasswordLength = (event) => {
+    const newLength = Number(event.target.value);
+    dispatch(setPasswordLength(newLength));
+  };
+
+  const switchUpperCase = (event) => {
+    const newCheck = event.target.checked;
+    dispatch(setCharacterType({ type: 'isUpperCase', value: newCheck }));
+  };
+
+  const switchLowerCase = (event) => {
+    const newCheck = event.target.checked;
+    dispatch(setCharacterType({ type: 'isLowerCase', value: newCheck }));
+  };
+
+  const switchNumberCase = (event) => {
+    const newCheck = event.target.checked;
+    dispatch(setCharacterType({ type: 'isNumber', value: newCheck }));
+  };
+
+  const switchSymbolCase = (event) => {
+    const newCheck = event.target.checked;
+    dispatch(setCharacterType({ type: 'isSymbol', value: newCheck }));
+  };
+
+  const handlePassword = () => {
+    dispatch(generatePassword({
+      isUpperCase, isLowerCase, isNumber, isSymbol, length: currentPasswordLength,
+    }));
+  };
+
   return (
     <div className="flex-container">
       <div className="passwordContainer">
@@ -33,60 +83,49 @@ const PasswordForm = (props) => {
               {t('passwordPage.passwordLength')}
               :
               {' '}
-              {lenght}
+              {currentPasswordLength}
               <input
                 type="range"
                 id="lengthPassword"
-                min={6}
-                max={36}
+                min={minPasswordLength}
+                max={maxPasswordLength}
                 step={1}
-                onChange={handleChangedLenght}
+                value={currentPasswordLength}
+                onChange={changePasswordLength}
               />
             </label>
           </div>
           <div className="setupCheckBox">
-            <label>
-              {t('passwordPage.upperCase')}
-              <input
-                type="checkbox"
-                checked={checkedUpperCase}
-                onChange={changeCheckBoxUpperCase}
-                id="upperCase"
-              />
-            </label>
-            <label>
-              {t('passwordPage.lowerCase')}
-              <input
-                type="checkbox"
-                id="lowerCase"
-                checked={checkedLowerCase}
-                onChange={changeCheckBoxLowerCase}
-              />
-            </label>
-            <label>
-              {t('passwordPage.numbers')}
-              <input
-                type="checkbox"
-                id="numbers"
-                checked={checkedNumber}
-                onChange={changeCheckBoxNumber}
-              />
-            </label>
-            <label>
-              {t('passwordPage.symbols')}
-              <input
-                type="checkbox"
-                id="symbols"
-                checked={checkedSymbols}
-                onChange={changeCheckBoxSymbols}
-              />
-            </label>
+            <Input
+              checked={isUpperCase}
+              onChange={switchUpperCase}
+              id="upperCase"
+              name={t('passwordPage.upperCase')}
+            />
+            <Input
+              checked={isLowerCase}
+              onChange={switchLowerCase}
+              id="lowerCase"
+              name={t('passwordPage.lowerCase')}
+            />
+            <Input
+              checked={isNumber}
+              onChange={switchNumberCase}
+              id="lowerCase"
+              name={t('passwordPage.numbers')}
+            />
+            <Input
+              checked={isSymbol}
+              onChange={switchSymbolCase}
+              id="lowerCase"
+              name={t('passwordPage.symbols')}
+            />
           </div>
         </div>
         <button
           className="btn"
           type="button"
-          onClick={generatePassword}
+          onClick={handlePassword}
         >
           {t('passwordPage.getPassword')}
         </button>
