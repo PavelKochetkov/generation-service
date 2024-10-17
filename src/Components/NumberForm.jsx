@@ -17,6 +17,7 @@ const NumbersForm = (props) => {
     <div className="numbersform">
       <div className="result">{result}</div>
       <button
+        className="btn-number"
         type="button"
         onClick={generateNumber}
         disabled={(minNumber > maxNumber) || (typeof minNumber !== 'number' && typeof maxNumber !== 'number')}

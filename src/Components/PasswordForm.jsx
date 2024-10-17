@@ -2,9 +2,13 @@ import React, { useEffect } from 'react';
 import '../css/passwordForm.css';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import Input from './Input';
+import InputCheckBox from './InputCheckBox';
+import InputRange from './InputRange';
+import ButtonGetPassword from './ButtonGetPassword';
+import ButtonResetPassword from './ButtonResetPassword';
 import {
   selectPassword,
+  selectIsPassword,
   selectMinPasswordLength,
   selectMaxPasswordLength,
   selectCurrentPasswordLength,
@@ -15,6 +19,7 @@ import {
   setCharacterType,
   setPasswordLength,
   generatePassword,
+  resetPassword,
 } from '../store/slice/appSlice';
 import Loading from './Loading';
 
@@ -25,6 +30,7 @@ const PasswordForm = (props) => {
   } = props;
 
   const password = useSelector(selectPassword);
+  const isPassword = useSelector(selectIsPassword);
   const minPasswordLength = useSelector(selectMinPasswordLength);
   const maxPasswordLength = useSelector(selectMaxPasswordLength);
   const currentPasswordLength = useSelector(selectCurrentPasswordLength);
@@ -71,6 +77,10 @@ const PasswordForm = (props) => {
     }));
   };
 
+  const handleResetPassword = () => {
+    dispatch(resetPassword());
+  };
+
   return (
     <div className="flex-container">
       <div className="passwordContainer">
@@ -79,42 +89,36 @@ const PasswordForm = (props) => {
         <hr />
         <div className="setup">
           <div className="setupRange">
-            <label>
-              {t('passwordPage.passwordLength')}
-              :
-              {' '}
-              {currentPasswordLength}
-              <input
-                type="range"
-                id="lengthPassword"
-                min={minPasswordLength}
-                max={maxPasswordLength}
-                step={1}
-                value={currentPasswordLength}
-                onChange={changePasswordLength}
-              />
-            </label>
+            <InputRange
+              min={minPasswordLength}
+              max={maxPasswordLength}
+              step={1}
+              value={currentPasswordLength}
+              onChange={changePasswordLength}
+              name={t('passwordPage.passwordLength')}
+              length={currentPasswordLength}
+            />
           </div>
           <div className="setupCheckBox">
-            <Input
+            <InputCheckBox
               checked={isUpperCase}
               onChange={switchUpperCase}
               id="upperCase"
               name={t('passwordPage.upperCase')}
             />
-            <Input
+            <InputCheckBox
               checked={isLowerCase}
               onChange={switchLowerCase}
               id="lowerCase"
               name={t('passwordPage.lowerCase')}
             />
-            <Input
+            <InputCheckBox
               checked={isNumber}
               onChange={switchNumberCase}
               id="lowerCase"
               name={t('passwordPage.numbers')}
             />
-            <Input
+            <InputCheckBox
               checked={isSymbol}
               onChange={switchSymbolCase}
               id="lowerCase"
@@ -122,13 +126,11 @@ const PasswordForm = (props) => {
             />
           </div>
         </div>
-        <button
-          className="btn"
-          type="button"
+        <ButtonGetPassword
+          name={t('passwordPage.getPassword')}
           onClick={handlePassword}
-        >
-          {t('passwordPage.getPassword')}
-        </button>
+        />
+        {isPassword && <ButtonResetPassword name={t('passwordPage.resetPassword')} onClick={handleResetPassword} />}
       </div>
       <div className="descriptions">
         <div className="descriptionTitle">{t('passwordPage.passwordStrength')}</div>

@@ -17,6 +17,7 @@ const initialState = {
   isNumber: false,
   isSymbol: false,
   password: '',
+  isPassword: false,
 };
 
 const appSlice = createSlice({
@@ -38,6 +39,18 @@ const appSlice = createSlice({
       const newPassword = getPassword(payload);
       Object.assign(state, {
         password: newPassword,
+        isPassword: true,
+      });
+    },
+    resetPassword: (state) => {
+      Object.assign(state, {
+        password: '',
+        isPassword: false,
+        currentPasswordLength: 6,
+        isUpperCase: true,
+        isLowerCase: false,
+        isNumber: false,
+        isSymbol: false,
       });
     },
   },
@@ -88,9 +101,11 @@ export const {
   setPasswordLength,
   setCharacterType,
   generatePassword,
+  resetPassword,
 } = appSlice.actions;
 
 export const selectPassword = (state) => state.app.password;
+export const selectIsPassword = (state) => state.app.isPassword;
 export const selectIsError = (state) => state.app.isError;
 export const selectError = (state) => state.app.error;
 export const selectMinPasswordLength = (state) => state.app.minPasswordLength;

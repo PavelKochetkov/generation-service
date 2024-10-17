@@ -18,6 +18,7 @@ export default {
       numbers: 'Числа',
       symbols: 'Символы',
       getPassword: 'Сгенерировать пароль',
+      resetPassword: 'Сбросить пароль',
       passwordStrength: 'Какие факторы определяют надёжность пароля?',
     },
     numberPage: {
