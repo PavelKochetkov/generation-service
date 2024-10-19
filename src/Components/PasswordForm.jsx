@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import '../css/passwordForm.css';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import InputCheckBox from './InputCheckBox';
 import InputRange from './InputRange';
 import ButtonGetPassword from './ButtonGetPassword';
 import ButtonResetPassword from './ButtonResetPassword';
+import copyPasswordToClipBoard from '../utils/copyPasswordToClipboard';
 import {
   selectPassword,
   selectIsPassword,
+  selectIsCopiedPassword,
   selectMinPasswordLength,
   selectMaxPasswordLength,
   selectCurrentPasswordLength,
@@ -19,7 +22,9 @@ import {
   setCharacterType,
   setPasswordLength,
   generatePassword,
+  copyPassword,
   resetPassword,
+  resetCopiedPassword,
 } from '../store/slice/appSlice';
 import Loading from './Loading';
 
@@ -31,6 +36,7 @@ const PasswordForm = (props) => {
 
   const password = useSelector(selectPassword);
   const isPassword = useSelector(selectIsPassword);
+  const isCopiedPassword = useSelector(selectIsCopiedPassword);
   const minPasswordLength = useSelector(selectMinPasswordLength);
   const maxPasswordLength = useSelector(selectMaxPasswordLength);
   const currentPasswordLength = useSelector(selectCurrentPasswordLength);
@@ -45,6 +51,10 @@ const PasswordForm = (props) => {
   useEffect(() => {
     dispatch(setPasswordLength(minPasswordLength));
   }, [dispatch, minPasswordLength]);
+
+  useEffect(() => {
+    if (isCopiedPassword) toast.success(t('toast.copiedPassword'));
+  }, [dispatch, isCopiedPassword]);
 
   const changePasswordLength = (event) => {
     const newLength = Number(event.target.value);
@@ -81,10 +91,26 @@ const PasswordForm = (props) => {
     dispatch(resetPassword());
   };
 
+  const handleCopyPassword = () => {
+    copyPasswordToClipBoard(password)
+      .then(() => dispatch(copyPassword()))
+      .then(() => dispatch(resetCopiedPassword()));
+  };
+
   return (
     <div className="flex-container">
       <div className="passwordContainer">
         <div className="password">{password}</div>
+        {isPassword
+        && (
+        <button
+          className="btn-copy"
+          type="button"
+          onClick={handleCopyPassword}
+        >
+          {t('passwordPage.copyPassword')}
+        </button>
+        )}
         <div className="title">{t('passwordPage.setupPassword')}</div>
         <hr />
         <div className="setup">

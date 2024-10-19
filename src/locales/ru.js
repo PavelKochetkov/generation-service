@@ -18,6 +18,7 @@ export default {
       numbers: 'Числа',
       symbols: 'Символы',
       getPassword: 'Сгенерировать пароль',
+      copyPassword: 'Скопировать пароль',
       resetPassword: 'Сбросить пароль',
       passwordStrength: 'Какие факторы определяют надёжность пароля?',
     },
@@ -48,6 +49,9 @@ export default {
     },
     status: {
       loading: 'Загрузка...',
+    },
+    toast: {
+      copiedPassword: 'Пароль скопирован',
     },
   },
 };

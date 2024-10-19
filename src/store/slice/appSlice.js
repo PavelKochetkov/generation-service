@@ -18,6 +18,7 @@ const initialState = {
   isSymbol: false,
   password: '',
   isPassword: false,
+  isCopied: false,
 };
 
 const appSlice = createSlice({
@@ -42,6 +43,16 @@ const appSlice = createSlice({
         isPassword: true,
       });
     },
+    copyPassword: (state) => {
+      Object.assign(state, {
+        isCopied: true,
+      });
+    },
+    resetCopiedPassword: (state) => {
+      Object.assign(state, {
+        isCopied: false,
+      });
+    },
     resetPassword: (state) => {
       Object.assign(state, {
         password: '',
@@ -51,6 +62,7 @@ const appSlice = createSlice({
         isLowerCase: false,
         isNumber: false,
         isSymbol: false,
+        isCopied: false,
       });
     },
   },
@@ -101,11 +113,14 @@ export const {
   setPasswordLength,
   setCharacterType,
   generatePassword,
+  copyPassword,
   resetPassword,
+  resetCopiedPassword,
 } = appSlice.actions;
 
 export const selectPassword = (state) => state.app.password;
 export const selectIsPassword = (state) => state.app.isPassword;
+export const selectIsCopiedPassword = (state) => state.app.isCopied;
 export const selectIsError = (state) => state.app.isError;
 export const selectError = (state) => state.app.error;
 export const selectMinPasswordLength = (state) => state.app.minPasswordLength;

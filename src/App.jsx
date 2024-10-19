@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { getPageRoute } from './utils/routes';
 import NavigationBar from './Components/NavigationBar';
 import Password from './Pages/Password';
@@ -28,6 +29,7 @@ const App = () => {
           <Route path={getPageRoute('UPDATE_PAGE')} element={<Updates />} />
         </Routes>
       </HashRouter>
+      <ToastContainer />
     </>
   );
 };
