@@ -6,7 +6,7 @@ const ButtonGetPassword = ({ name, onClick }) => (
     type="button"
     onClick={onClick}
   >
-    {name}
+    { name }
   </button>
 );
 

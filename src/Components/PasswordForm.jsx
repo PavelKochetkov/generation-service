@@ -7,6 +7,7 @@ import InputCheckBox from './InputCheckBox';
 import InputRange from './InputRange';
 import ButtonGetPassword from './ButtonGetPassword';
 import ButtonResetPassword from './ButtonResetPassword';
+import ButtonCopyPassword from './ButtonCopyPassword';
 import copyPasswordToClipBoard from '../utils/copyPasswordToClipboard';
 import {
   selectPassword,
@@ -101,16 +102,6 @@ const PasswordForm = (props) => {
     <div className="flex-container">
       <div className="passwordContainer">
         <div className="password">{password}</div>
-        {isPassword
-        && (
-        <button
-          className="btn-copy"
-          type="button"
-          onClick={handleCopyPassword}
-        >
-          {t('passwordPage.copyPassword')}
-        </button>
-        )}
         <div className="title">{t('passwordPage.setupPassword')}</div>
         <hr />
         <div className="setup">
@@ -156,7 +147,19 @@ const PasswordForm = (props) => {
           name={t('passwordPage.getPassword')}
           onClick={handlePassword}
         />
-        {isPassword && <ButtonResetPassword name={t('passwordPage.resetPassword')} onClick={handleResetPassword} />}
+        {isPassword
+        && (
+        <div className="password-actions">
+          <ButtonResetPassword
+            name={t('passwordPage.resetPassword')}
+            onClick={handleResetPassword}
+          />
+          <ButtonCopyPassword
+            name={t('passwordPage.copyPassword')}
+            onClick={handleCopyPassword}
+          />
+        </div>
+        )}
       </div>
       <div className="descriptions">
         <div className="descriptionTitle">{t('passwordPage.passwordStrength')}</div>
