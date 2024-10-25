@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import homeApi from '../../api/homeApi';
 import passwordApi from '../../api/passwordApi';
 import getPassword from '../../utils/getPassword';
+import getRandomNumber from '../../utils/getRandomNumber';
 
 const initialState = {
   homeData: null,
@@ -19,6 +20,9 @@ const initialState = {
   password: '',
   isPassword: false,
   isCopied: false,
+  resultNumber: 0,
+  currentMinNumber: 1,
+  currentMaxNumber: 10,
 };
 
 const appSlice = createSlice({
@@ -63,6 +67,18 @@ const appSlice = createSlice({
         isNumber: false,
         isSymbol: false,
         isCopied: false,
+      });
+    },
+    setMinMaxNumber: (state, { payload }) => {
+      Object.assign(state, {
+        currentMinNumber: payload,
+        currentMaxNumber: payload,
+      });
+    },
+    generateNumber: (state, { payload }) => {
+      const randomNumber = getRandomNumber(payload);
+      Object.assign(state, {
+        resultNumber: randomNumber,
       });
     },
   },
@@ -116,6 +132,8 @@ export const {
   copyPassword,
   resetPassword,
   resetCopiedPassword,
+  setMinMaxNumber,
+  generateNumber,
 } = appSlice.actions;
 
 export const selectPassword = (state) => state.app.password;
@@ -128,7 +146,10 @@ export const selectMaxPasswordLength = (state) => state.app.maxPasswordLength;
 export const selectCurrentPasswordLength = (state) => state.app.currentPasswordLength;
 export const selectUpperCase = (state) => state.app.isUpperCase;
 export const selectLowerCase = (state) => state.app.isLowerCase;
-export const selectNumber = (state) => state.app.isNumber;
+export const selectIsNumber = (state) => state.app.isNumber;
 export const selectSymbol = (state) => state.app.isSymbol;
+export const selectResultNumber = (state) => state.app.resultNumber;
+export const selectCurrentMinNumber = (state) => state.app.currentMinNumber;
+export const selectCurrentMaxNumber = (state) => state.app.currentMaxNumber;
 
 export default appSlice.reducer;

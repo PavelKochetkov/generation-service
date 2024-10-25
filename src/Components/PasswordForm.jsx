@@ -18,7 +18,7 @@ import {
   selectCurrentPasswordLength,
   selectUpperCase,
   selectLowerCase,
-  selectNumber,
+  selectIsNumber,
   selectSymbol,
   setCharacterType,
   setPasswordLength,
@@ -43,7 +43,7 @@ const PasswordForm = (props) => {
   const currentPasswordLength = useSelector(selectCurrentPasswordLength);
   const isUpperCase = useSelector(selectUpperCase);
   const isLowerCase = useSelector(selectLowerCase);
-  const isNumber = useSelector(selectNumber);
+  const isNumber = useSelector(selectIsNumber);
   const isSymbol = useSelector(selectSymbol);
 
   const { t } = useTranslation();
@@ -100,7 +100,7 @@ const PasswordForm = (props) => {
 
   return (
     <div className="flex-container">
-      <div className="passwordContainer">
+      <div className="password-container">
         <div className="password">{password}</div>
         <div className="title">{t('passwordPage.setupPassword')}</div>
         <hr />
@@ -146,6 +146,7 @@ const PasswordForm = (props) => {
         <ButtonGetPassword
           name={t('passwordPage.getPassword')}
           onClick={handlePassword}
+          disabled={!isUpperCase && !isLowerCase && !isNumber && !isSymbol}
         />
         {isPassword
         && (
@@ -162,12 +163,12 @@ const PasswordForm = (props) => {
         )}
       </div>
       <div className="descriptions">
-        <div className="descriptionTitle">{t('passwordPage.passwordStrength')}</div>
+        <div className="description-title">{t('passwordPage.passwordStrength')}</div>
         {isLoading && <Loading />}
         {passwordData.map((item) => (
           <div key={item.id}>
-            <div className="noteTitle">{item.title}</div>
-            <div className="noteDescription">
+            <div className="note-title">{item.title}</div>
+            <div className="note-description">
               <div className="descr">{item.description}</div>
               <img
                 className="logoimg"

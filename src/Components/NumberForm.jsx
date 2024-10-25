@@ -1,57 +1,71 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import '../css/numbersform.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { Formik, Form, Field } from 'formik';
+import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
+import createSchemaValidationNumbers from '../utils/validate';
+import ButtonGetRandomNumber from './ButtonGetRandomNumber';
+import {
+  selectCurrentMaxNumber,
+  selectCurrentMinNumber,
+  selectResultNumber,
+  generateNumber,
+} from '../store/slice/appSlice';
 
-const NumbersForm = (props) => {
-  const {
-    result,
-    generateNumber,
-    minNumber,
-    maxNumber,
-    changeMaxNumber,
-    changeMinNumber,
-  } = props;
+const NumberForm = () => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
+  const validationSchema = createSchemaValidationNumbers(t);
+  const resultNumber = useSelector(selectResultNumber);
+  const minNumber = useSelector(selectCurrentMinNumber);
+  const maxNumber = useSelector(selectCurrentMaxNumber);
+
+  const handleRandomNumber = (values) => {
+    const { min, max } = values;
+    dispatch(generateNumber({ minNumber: min, maxNumber: max }));
+  };
 
   return (
-    <div className="numbersform">
-      <div className="result">{result}</div>
-      <button
-        className="btn-number"
-        type="button"
-        onClick={generateNumber}
-        disabled={(minNumber > maxNumber) || (typeof minNumber !== 'number' && typeof maxNumber !== 'number')}
-      >
-        {t('numberPage.getRandomNumber')}
-      </button>
-      <hr className="hr" />
-      <div className="lenght">{t('numberPage.range')}</div>
-      {typeof minNumber !== 'number' && typeof maxNumber !== 'number'
-                && <div className="er">{t('numberPage.notToBeText')}</div> }
-      {minNumber > maxNumber
-                && (
-                <div className="er">
-                  {t('numberPage.canNotToBeGreater')}
-                </div>
-                )}
-      <div className="range">
-        {t('numberPage.from')}
-        <input
-          className="min"
-          type="number"
-          value={minNumber}
-          onChange={changeMinNumber}
-        />
-        {t('numberPage.to')}
-        <input
-          className="max"
-          type="number"
-          value={maxNumber}
-          onChange={changeMaxNumber}
-        />
-      </div>
-    </div>
+    <Formik
+      initialValues={{
+        min: minNumber,
+        max: maxNumber,
+      }}
+      validationSchema={validationSchema}
+      onSubmit={handleRandomNumber}
+    >
+      {({ errors, isValid }) => (
+        <Form
+          className="numbersform"
+        >
+          <div className="result">{resultNumber}</div>
+          <ButtonGetRandomNumber
+            name={t('numberPage.getRandomNumber')}
+            disabled={!isValid}
+          />
+          <hr className="hr" />
+          <div className="lenght">{t('numberPage.range')}</div>
+          <div className="range">
+            {t('numberPage.from')}
+            <Field
+              className={cn('min', { 'is-invalid': !isValid })}
+              name="min"
+              type="number"
+            />
+            {!isValid && <div className="er">{errors.min}</div>}
+            {t('numberPage.to')}
+            <Field
+              className={cn('max', { 'is-invalid': !isValid })}
+              name="max"
+              type="number"
+            />
+            {!isValid && <div className="er">{errors.max}</div>}
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
-export default NumbersForm;
+export default NumberForm;
