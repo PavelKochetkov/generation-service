@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { createSlice } from '@reduxjs/toolkit';
+import qrCodeImage from '../../assets/JustDoIt.png';
 import homeApi from '../../api/homeApi';
 import passwordApi from '../../api/passwordApi';
 import getPassword from '../../utils/getPassword';
@@ -23,6 +24,7 @@ const initialState = {
   resultNumber: 0,
   currentMinNumber: 1,
   currentMaxNumber: 10,
+  qrCode: qrCodeImage,
 };
 
 const appSlice = createSlice({
@@ -38,6 +40,13 @@ const appSlice = createSlice({
       const { type, value } = payload;
       Object.assign(state, {
         [type]: value,
+      });
+    },
+    setQrCodeUrl: (state, { payload }) => {
+      const initialUrl = 'https://api.qrserver.com/v1/create-qr-code?size=200x200';
+      const qrCodeUrl = `${initialUrl}&data=${payload}`;
+      Object.assign(state, {
+        qrCode: qrCodeUrl,
       });
     },
     generatePassword: (state, { payload }) => {
@@ -67,12 +76,6 @@ const appSlice = createSlice({
         isNumber: false,
         isSymbol: false,
         isCopied: false,
-      });
-    },
-    setMinMaxNumber: (state, { payload }) => {
-      Object.assign(state, {
-        currentMinNumber: payload,
-        currentMaxNumber: payload,
       });
     },
     generateNumber: (state, { payload }) => {
@@ -128,11 +131,11 @@ const appSlice = createSlice({
 export const {
   setPasswordLength,
   setCharacterType,
+  setQrCodeUrl,
   generatePassword,
   copyPassword,
   resetPassword,
   resetCopiedPassword,
-  setMinMaxNumber,
   generateNumber,
 } = appSlice.actions;
 
@@ -151,5 +154,6 @@ export const selectSymbol = (state) => state.app.isSymbol;
 export const selectResultNumber = (state) => state.app.resultNumber;
 export const selectCurrentMinNumber = (state) => state.app.currentMinNumber;
 export const selectCurrentMaxNumber = (state) => state.app.currentMaxNumber;
+export const selectQrCode = (state) => state.app.qrCode;
 
 export default appSlice.reducer;

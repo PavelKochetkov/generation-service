@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const createSchemaValidationNumbers = (t) => {
+export const createSchemaValidationNumbers = (t) => {
   const schema = Yup.object().shape({
     min: Yup.number()
       .required(t('error.required'))
@@ -20,4 +20,13 @@ const createSchemaValidationNumbers = (t) => {
   return schema;
 };
 
-export default createSchemaValidationNumbers;
+export const createSchemaValidationQr = (t) => {
+  const schema = Yup.object().shape({
+    text: Yup.string()
+      .required(t('error.required'))
+      .min(1, t('error.min'))
+      .test('non-single-zero', t('error.notSingleZero'), (value) => value !== '0'),
+  });
+
+  return schema;
+};

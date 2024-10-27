@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
-import createSchemaValidationNumbers from '../utils/validate';
+import { createSchemaValidationNumbers } from '../utils/validate';
 import ButtonGetRandomNumber from './ButtonGetRandomNumber';
 import {
   selectCurrentMaxNumber,
