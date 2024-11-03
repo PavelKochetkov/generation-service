@@ -18,7 +18,7 @@
     color: rgb(191, 221, 255);
 }
 
-.activ :hover {
+.nav-link :hover {
     font-weight: bold;
     color: aliceblue;
 }
