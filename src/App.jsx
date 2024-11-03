@@ -1,9 +1,10 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { setActiveMenu } from './store/slice/appSlice';
 import { getPageRoute } from './utils/routes';
+import ButtonActiveBurgerMenu from './Components/ButtonActiveBurgerMenu';
 import NavigationBar from './Components/NavigationBar';
 import Password from './Pages/Password';
 import Updates from './Pages/Updates';
@@ -12,15 +13,18 @@ import Numbers from './Pages/Numbers';
 import QrService from './Pages/QrService';
 
 const App = () => {
-  const [burgerMenuActive, setBurgerMenuActive] = useState(false);
+  const dispatch = useDispatch();
+
   const handleBurgerMenu = () => {
-    setBurgerMenuActive(!burgerMenuActive);
+    dispatch(setActiveMenu());
   };
   return (
     <>
-      <div className="burgerClick" onClick={handleBurgerMenu} />
+      <ButtonActiveBurgerMenu
+        onClick={handleBurgerMenu}
+      />
       <HashRouter>
-        <NavigationBar active={burgerMenuActive} setActive={setBurgerMenuActive} />
+        <NavigationBar />
         <Routes>
           <Route path={getPageRoute('HOME_PAGE')} element={<Home />} />
           <Route path={getPageRoute('PASSWORD_PAGE')} element={<Password />} />

@@ -1,16 +1,18 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
+import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { selectIsActive } from '../store/slice/appSlice';
 import '../css/NavigationBar.css';
 import logo from '../assets/logo.jpg';
 import Navmenu from './Navmenu';
 
-const NavigationBar = ({ active, setActive }) => {
+const NavigationBar = () => {
   const { t } = useTranslation();
+  const isActive = useSelector(selectIsActive);
 
   return (
-    <div className={active ? 'navbar activated' : 'navbar'} onClick={() => { setActive(false); }}>
+    <div className={cn('navbar', { 'navbar activated': isActive })}>
       <div className="logo">
         <img src={logo} alt="logo" />
         <div className="siteName">

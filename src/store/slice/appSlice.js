@@ -25,6 +25,7 @@ const initialState = {
   currentMinNumber: 1,
   currentMaxNumber: 10,
   qrCode: qrCodeImage,
+  isActive: false,
 };
 
 const appSlice = createSlice({
@@ -47,6 +48,16 @@ const appSlice = createSlice({
       const qrCodeUrl = `${initialUrl}&data=${payload}`;
       Object.assign(state, {
         qrCode: qrCodeUrl,
+      });
+    },
+    setActiveMenu: (state) => {
+      Object.assign(state, {
+        isActive: true,
+      });
+    },
+    setNotActiveMenu: (state) => {
+      Object.assign(state, {
+        isActive: false,
       });
     },
     generatePassword: (state, { payload }) => {
@@ -132,6 +143,8 @@ export const {
   setPasswordLength,
   setCharacterType,
   setQrCodeUrl,
+  setActiveMenu,
+  setNotActiveMenu,
   generatePassword,
   copyPassword,
   resetPassword,
@@ -155,5 +168,6 @@ export const selectResultNumber = (state) => state.app.resultNumber;
 export const selectCurrentMinNumber = (state) => state.app.currentMinNumber;
 export const selectCurrentMaxNumber = (state) => state.app.currentMaxNumber;
 export const selectQrCode = (state) => state.app.qrCode;
+export const selectIsActive = (state) => state.app.isActive;
 
 export default appSlice.reducer;

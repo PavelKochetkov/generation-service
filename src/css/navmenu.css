@@ -9,7 +9,7 @@
     border-radius: 10px;
 }
 
-.activ {
+.nav-link {
     text-decoration: none;
     font-size: 25px;
     font-family: cursive;
@@ -24,7 +24,7 @@
 }
 
 @media (max-width: 768px) {
-    .activ {
+    .nav-link {
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 }
