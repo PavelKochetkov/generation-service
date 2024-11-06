@@ -47,6 +47,11 @@
   font-size: 20px;
   text-align: center;
 }
+.er {
+  color: red;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 10px;
+}
 
 @media (max-width: 1520px) {
   .home,

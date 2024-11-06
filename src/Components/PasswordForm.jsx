@@ -9,9 +9,10 @@ import ButtonGetPassword from './ButtonGetPassword';
 import ButtonResetPassword from './ButtonResetPassword';
 import ButtonCopyPassword from './ButtonCopyPassword';
 import copyPasswordToClipBoard from '../utils/copyPasswordToClipboard';
+import handleError from '../utils/handleError';
 import {
   selectPassword,
-  selectIsPassword,
+  selectIsPasswordCreated,
   selectIsCopiedPassword,
   selectMinPasswordLength,
   selectMaxPasswordLength,
@@ -20,6 +21,8 @@ import {
   selectLowerCase,
   selectIsNumber,
   selectSymbol,
+  selectIsPasswordError,
+  selectError,
   setCharacterType,
   setPasswordLength,
   generatePassword,
@@ -36,7 +39,7 @@ const PasswordForm = (props) => {
   } = props;
 
   const password = useSelector(selectPassword);
-  const isPassword = useSelector(selectIsPassword);
+  const isPasswordCreated = useSelector(selectIsPasswordCreated);
   const isCopiedPassword = useSelector(selectIsCopiedPassword);
   const minPasswordLength = useSelector(selectMinPasswordLength);
   const maxPasswordLength = useSelector(selectMaxPasswordLength);
@@ -45,9 +48,13 @@ const PasswordForm = (props) => {
   const isLowerCase = useSelector(selectLowerCase);
   const isNumber = useSelector(selectIsNumber);
   const isSymbol = useSelector(selectSymbol);
+  const isPasswordError = useSelector(selectIsPasswordError);
+  const error = useSelector(selectError);
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
+  const errorMessage = handleError(error, t);
 
   useEffect(() => {
     dispatch(setPasswordLength(minPasswordLength));
@@ -148,7 +155,7 @@ const PasswordForm = (props) => {
           onClick={handlePassword}
           disabled={!isUpperCase && !isLowerCase && !isNumber && !isSymbol}
         />
-        {isPassword
+        {isPasswordCreated
         && (
         <div className="password-actions">
           <ButtonResetPassword
@@ -164,6 +171,7 @@ const PasswordForm = (props) => {
       </div>
       <div className="descriptions">
         <div className="description-title">{t('passwordPage.passwordStrength')}</div>
+        {isPasswordError && <div className="er">{errorMessage}</div>}
         {isLoading && <Loading />}
         {passwordData.map((item) => (
           <div key={item.id}>

@@ -8,8 +8,9 @@ import getRandomNumber from '../../utils/getRandomNumber';
 
 const initialState = {
   homeData: null,
+  isHomeDataError: false,
   passwordData: null,
-  isError: false,
+  isPasswordError: false,
   error: null,
   minPasswordLength: 6,
   maxPasswordLength: 36,
@@ -19,7 +20,7 @@ const initialState = {
   isNumber: false,
   isSymbol: false,
   password: '',
-  isPassword: false,
+  isPasswordCreated: false,
   isCopied: false,
   resultNumber: 0,
   currentMinNumber: 1,
@@ -64,7 +65,7 @@ const appSlice = createSlice({
       const newPassword = getPassword(payload);
       Object.assign(state, {
         password: newPassword,
-        isPassword: true,
+        isPasswordCreated: true,
       });
     },
     copyPassword: (state) => {
@@ -80,7 +81,7 @@ const appSlice = createSlice({
     resetPassword: (state) => {
       Object.assign(state, {
         password: '',
-        isPassword: false,
+        isPasswordCreated: false,
         currentPasswordLength: 6,
         isUpperCase: true,
         isLowerCase: false,
@@ -100,7 +101,7 @@ const appSlice = createSlice({
     builder
       .addMatcher(homeApi.endpoints.getData.matchPending, (state) => {
         Object.assign(state, {
-          isError: false,
+          isHomeDataError: false,
           error: null,
         });
       })
@@ -108,18 +109,18 @@ const appSlice = createSlice({
         Object.assign(state, {
           homeData: payload,
           error: null,
-          isError: false,
+          isHomeDataError: false,
         });
       })
       .addMatcher(homeApi.endpoints.getData.matchRejected, (state, { payload }) => {
         Object.assign(state, {
-          isError: true,
+          isHomeDataError: true,
           error: payload.status,
         });
       })
       .addMatcher(passwordApi.endpoints.getPasswordPageData.matchPending, (state) => {
         Object.assign(state, {
-          isError: false,
+          isPasswordError: false,
           error: null,
         });
       })
@@ -127,12 +128,13 @@ const appSlice = createSlice({
         Object.assign(state, {
           passwordData: payload,
           error: null,
-          isError: false,
+          isPasswordError: false,
         });
       })
       .addMatcher(passwordApi.endpoints.getPasswordPageData.matchRejected, (state, { payload }) => {
+        console.log(payload.status);
         Object.assign(state, {
-          isError: true,
+          isPasswordError: true,
           error: payload.status,
         });
       });
@@ -153,9 +155,9 @@ export const {
 } = appSlice.actions;
 
 export const selectPassword = (state) => state.app.password;
-export const selectIsPassword = (state) => state.app.isPassword;
+export const selectIsPasswordCreated = (state) => state.app.isPasswordCreated;
 export const selectIsCopiedPassword = (state) => state.app.isCopied;
-export const selectIsError = (state) => state.app.isError;
+export const selectIsPasswordError = (state) => state.app.isPasswordError;
 export const selectError = (state) => state.app.error;
 export const selectMinPasswordLength = (state) => state.app.minPasswordLength;
 export const selectMaxPasswordLength = (state) => state.app.maxPasswordLength;
@@ -169,5 +171,6 @@ export const selectCurrentMinNumber = (state) => state.app.currentMinNumber;
 export const selectCurrentMaxNumber = (state) => state.app.currentMaxNumber;
 export const selectQrCode = (state) => state.app.qrCode;
 export const selectIsActive = (state) => state.app.isActive;
+export const selectIsHomeDataError = (state) => state.app.isHomeDataError;
 
 export default appSlice.reducer;
