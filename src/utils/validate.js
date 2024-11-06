@@ -7,6 +7,7 @@ export const createSchemaValidationNumbers = (t) => {
       .typeError(t('error.mustBeNumber'))
       .positive(t('error.positive'))
       .integer(t('error.integer'))
+      .max(999999999999, t('error.maxNumber'))
       .test('is-greater', t('error.isGreater'), function chek(value) {
         const { max } = this.parent;
 
@@ -16,7 +17,8 @@ export const createSchemaValidationNumbers = (t) => {
       .required(t('error.required'))
       .typeError(t('error.mustBeNumber'))
       .positive(t('error.positive'))
-      .integer(t('error.integer')),
+      .integer(t('error.integer'))
+      .max(999999999999, t('error.maxNumber')),
   });
 
   return schema;

@@ -33,7 +33,6 @@ const NumberForm = () => {
         max: maxNumber,
       }}
       validationSchema={validationSchema}
-      validateOnBlur={false}
       onSubmit={handleRandomNumber}
     >
       {({ errors, isValid }) => (
