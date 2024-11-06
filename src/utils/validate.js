@@ -4,6 +4,7 @@ export const createSchemaValidationNumbers = (t) => {
   const schema = Yup.object().shape({
     min: Yup.number()
       .required(t('error.required'))
+      .typeError(t('error.mustBeNumber'))
       .positive(t('error.positive'))
       .integer(t('error.integer'))
       .test('is-greater', t('error.isGreater'), function chek(value) {
@@ -13,6 +14,7 @@ export const createSchemaValidationNumbers = (t) => {
       }),
     max: Yup.number()
       .required(t('error.required'))
+      .typeError(t('error.mustBeNumber'))
       .positive(t('error.positive'))
       .integer(t('error.integer')),
   });

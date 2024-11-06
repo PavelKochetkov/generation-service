@@ -23,8 +23,8 @@ const initialState = {
   isPasswordCreated: false,
   isCopied: false,
   resultNumber: 0,
-  currentMinNumber: 1,
-  currentMaxNumber: 10,
+  currentMinNumber: '',
+  currentMaxNumber: '',
   qrCode: qrCodeImage,
   isActive: false,
 };

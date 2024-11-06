@@ -23,7 +23,7 @@ const NumberForm = () => {
 
   const handleRandomNumber = (values) => {
     const { min, max } = values;
-    dispatch(generateNumber({ minNumber: min, maxNumber: max }));
+    dispatch(generateNumber({ minNumber: Number(min), maxNumber: Number(max) }));
   };
 
   return (
@@ -33,6 +33,7 @@ const NumberForm = () => {
         max: maxNumber,
       }}
       validationSchema={validationSchema}
+      validateOnBlur={false}
       onSubmit={handleRandomNumber}
     >
       {({ errors, isValid }) => (
@@ -51,14 +52,12 @@ const NumberForm = () => {
             <Field
               className={cn('min', { 'is-invalid': !isValid })}
               name="min"
-              type="number"
             />
             {!isValid && <div className="er">{errors.min}</div>}
             {t('numberPage.to')}
             <Field
               className={cn('max', { 'is-invalid': !isValid })}
               name="max"
-              type="number"
             />
             {!isValid && <div className="er">{errors.max}</div>}
           </div>
