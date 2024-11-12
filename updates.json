@@ -1,28 +1,50 @@
-[
-  {
-    "updateone": {
-        "title": "Update 0.2.0 от 14.06.2023",
-        "change": {
-            "changeOne": {
-                "title": "Полностью переработанный дизайн",
-                "old": "/generation-service/assets/old.jpg",
-                "new": "/generation-service/assets/new.jpg",
-                "alt": "photo"
-            },
-            "changeTwo": {
-                "title": "Адаптация под разные устройства",
-                "desctop": "/generation-service/assets/desctop.jpg",
-                "tablet": "/generation-service/assets/tablet.jpg",
-                "mobile": "/generation-service/assets/mobile.jpg"
+{
+    "updates": [
+      {
+        "version": "0.2.0",
+        "date": "14.06.2023",
+        "changes": [
+          {
+            "title": "1) Реализованы новые основы интерфейса, что делает его более привлекательным и удобным для пользователей.",
+            "images": {
+              "old": "/generation-service/assets/old.jpg",
+              "new": "/generation-service/assets/new.jpg",
+              "alt": "photo"
             }
-        }
-    }, 
-    "updatetwo": {
-        "title": "Update 0.2.1 от 23.06.2023",
-        "change": {
-            "numbers" : "1) Добавлено генерирование случайных чисел.",
-            "qr": "2) Добавлено генерирование QR-кода."
-        }
-    }
+          },
+          {
+            "title": "2) Реализована адаптивность, что позволяет использовать приложение на разных устройствах.",
+            "screenshots": {
+              "desktop": "/generation-service/assets/desktop.jpg",
+              "tablet": "/generation-service/assets/tablet.jpg",
+              "mobile": "/generation-service/assets/mobile.jpg"
+            }
+          }
+        ]
+      },
+      {
+        "version": "0.2.1",
+        "date": "23.06.2023",
+        "changes": [
+          {
+            "title": "1) Добавлено генерирование случайных чисел."
+          },
+          {
+            "title": "2) Добавлено генерирование QR-кода."
+          }
+        ]
+      },
+      {
+        "version": "0.3.0",
+        "date": "12.11.2024",
+        "changes": [
+          {
+            "title": "1) Переписана логика приложения: в качестве основы использован Redux Toolkit для управления состоянием, что значительно улучшает производительность."
+          },
+          {
+            "title": "2) Добавлено валидирование полей, которое улучшат взаимодействие с пользователями."
+          }
+        ]
+      }
+    ]
   }
-]
