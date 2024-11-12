@@ -30,13 +30,17 @@ export default {
       canNotToBeGreater: 'Начальное значение не может быть больше конечного',
       from: 'от',
       to: 'до',
+      placeholder: 'Введите число',
     },
     qrPage: {
       title: 'Генератор QR-кода',
       createQrCode: 'Сгенерировать QR-код',
+      placeholder: 'Введите текст',
     },
     updatePage: {
       title: 'Обновления',
+      update: 'Обновление',
+      from: 'от',
     },
     navigation: {
       title: 'Strong',

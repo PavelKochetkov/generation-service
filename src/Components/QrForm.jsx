@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/qrpage.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +7,6 @@ import cn from 'classnames';
 import { createSchemaValidationQr } from '../utils/validate';
 import ButtonGetQrCode from './ButtonGetQrCode';
 import { selectQrCode, setQrCodeUrl } from '../store/slice/appSlice';
-import '../css/QrPage.css';
 
 const QrForm = () => {
   const dispatch = useDispatch();
@@ -39,6 +39,7 @@ const QrForm = () => {
           <Field
             className={cn('inputQr', { 'is-invalid': !isValid })}
             name="text"
+            placeholder={t('qrPage.placeholder')}
           />
           {!isValid && <div className="er">{errors.text}</div>}
           <ButtonGetQrCode

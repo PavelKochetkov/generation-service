@@ -1,9 +1,9 @@
 import React from 'react';
+import '../css/navigationbar.css';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { selectIsActive } from '../store/slice/appSlice';
-import '../css/NavigationBar.css';
 import logo from '../assets/logo.jpg';
 import Navmenu from './Navmenu';
 

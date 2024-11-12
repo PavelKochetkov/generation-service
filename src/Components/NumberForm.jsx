@@ -51,12 +51,14 @@ const NumberForm = () => {
             <Field
               className={cn('min', { 'is-invalid': !isValid })}
               name="min"
+              placeholder={t('numberPage.placeholder')}
             />
             {!isValid && <div className="er">{errors.min}</div>}
             {t('numberPage.to')}
             <Field
               className={cn('max', { 'is-invalid': !isValid })}
               name="max"
+              placeholder={t('numberPage.placeholder')}
             />
             {!isValid && <div className="er">{errors.max}</div>}
           </div>

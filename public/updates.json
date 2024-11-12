@@ -7,7 +7,6 @@
                 "title": "Полностью переработанный дизайн",
                 "old": "/generation-service/assets/old.jpg",
                 "new": "/generation-service/assets/new.jpg",
-                "arrow": "/generation-service/assets/arrow.png",
                 "alt": "photo"
             },
             "changeTwo": {

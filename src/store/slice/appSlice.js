@@ -5,12 +5,15 @@ import homeApi from '../../api/homeApi';
 import passwordApi from '../../api/passwordApi';
 import getPassword from '../../utils/getPassword';
 import getRandomNumber from '../../utils/getRandomNumber';
+import updateApi from '../../api/updatesApi';
 
 const initialState = {
   homeData: null,
   isHomeDataError: false,
   passwordData: null,
   isPasswordError: false,
+  updateData: null,
+  isUpdateDataError: false,
   error: null,
   minPasswordLength: 6,
   maxPasswordLength: 36,
@@ -135,6 +138,25 @@ const appSlice = createSlice({
         console.log(payload.status);
         Object.assign(state, {
           isPasswordError: true,
+          error: payload.status,
+        });
+      })
+      .addMatcher(updateApi.endpoints.getUpdatePageData.matchPending, (state) => {
+        Object.assign(state, {
+          isUpdateDataError: false,
+          error: null,
+        });
+      })
+      .addMatcher(updateApi.endpoints.getUpdatePageData.matchFulfilled, (state, { payload }) => {
+        Object.assign(state, {
+          updateData: payload,
+          error: null,
+          isUpdateDataError: false,
+        });
+      })
+      .addMatcher(updateApi.endpoints.getUpdatePageData.matchRejected, (state, { payload }) => {
+        Object.assign(state, {
+          isUpdateDataError: true,
           error: payload.status,
         });
       });

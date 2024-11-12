@@ -1,13 +1,13 @@
 import React from 'react';
-import '../css/TitlePageHeader.css';
+import '../css/titlepageheader.css';
 
 const Header = (props) => {
   const { title } = props;
 
   return (
-    <div className="titlePageHeader">
+    <header className="titlePageHeader">
       <h1>{title}</h1>
-    </div>
+    </header>
   );
 };
 
